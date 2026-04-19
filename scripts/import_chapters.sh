@@ -176,6 +176,9 @@ perl -0pi -e 's/\\label\{sec:intro\}/\\label{sec:chapter2-intro}/g' \
 perl -0pi -e 's/\\ref\{sec:results\}/\\ref{sec:chapter2-results}/g' \
   "$ROOT_DIR/chapters/chapter2/Paper/Subfiles/introduction.tex"
 
+perl -0pi -e 's/\\ref\{sec:results\}/\\ref{sec:chapter2-results}/g' \
+  "$ROOT_DIR/chapters/chapter2/Paper/Subfiles/data.tex"
+
 perl -0pi -e 's/\\label\{sec:results\}/\\label{sec:chapter2-results}/g' \
   "$ROOT_DIR/chapters/chapter2/Paper/Subfiles/results.tex"
 

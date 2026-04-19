@@ -3,7 +3,7 @@
 \section{Data}
 \label{sec:data}
 
-\par For the statistical analysis in this paper, I use the RAND Longitudinal version of the Household Retirement Survey (HRS) for the years 2002-2022. First, I define asset classes and portfolios, which will be guided by the unique structure of the HRS data set. Then, I provide descriptive statistics on the underlying return components, as well as returns by asset and portfolio. From there, I discuss some statistics on the demographic variables which form the set of control variables in the regression models. Finally, I look at the relationship between returns to net wealth and a number of variables (net wealth, age, education, trust) and describe portfolio compositions across respondents.
+\par For the statistical analysis in this paper, I use the RAND Longitudinal version of the Household Retirement Survey (HRS) for the years 2002-2022. First, I define asset classes and portfolios, which will be guided by the unique structure of the HRS data set. Then, I provide descriptive statistics on the underlying return components, as well as returns by asset and portfolio. From there, I discuss some statistics on the demographic variables which form the set of control variables in the regression models. Finally, I look at the relationship between returns to net wealth and a number of variables (net wealth, age, education, trust) and describe portfolio compositions across respondents.\footnote{Unless noted otherwise, tables and figures in this document use the standalone chapter defaults for sample construction; the replication code also supports an optional unified dissertation sample (Stata \texttt{Code/Analysis/5\_run\_pipeline\_ch2\_dissertation.do} or \texttt{Code/Analysis/45\_run\_prep\_and\_exports.do}) that harmonizes exported objects with the thesis Chapter~2 submission when a perfect match is needed.}
 
 \subsection{Sample restrictions}
 \label{ssec:sample-restrictions}
@@ -46,7 +46,7 @@ All of which are required to define the desired measure of household returns. Si
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.8\textwidth]{../../Code/Descriptive/Figures/interest_income_mean_by_year.png}
-\caption{Average interest income across respondents}
+\caption{Interest income mean by year}
 \label{fig:interest_income_mean_by_year}
 \end{figure}
 \FloatBarrier
@@ -100,7 +100,7 @@ All of which are required to define the desired measure of household returns. Si
 \small\textbf{Other real estate}\par\vspace{0.25em}
 \includegraphics[width=\textwidth]{../../Code/Descriptive/Figures/cg_re_mean_median_by_year.png}
 \end{minipage}
-\caption{Capital gains in core assets}
+\caption{Capital gains in core assets, by year}
 \label{fig:cg_core_assets_panels}
 \end{figure}
 
@@ -111,7 +111,7 @@ All of which are required to define the desired measure of household returns. Si
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.8\textwidth]{../../Code/Descriptive/Figures/cg_ira_mean_median_by_year.png}
-\caption{Capital gains in retirement assets}
+\caption{Capital gains in retirement assets, by year}
 \label{fig:cg_ira_by_year}
 \end{figure}
 \FloatBarrier
@@ -130,7 +130,7 @@ All of which are required to define the desired measure of household returns. Si
 \small\textbf{Secondary residence}\par\vspace{0.25em}
 \includegraphics[width=\textwidth]{../../Code/Descriptive/Figures/cg_res2_mean_median_by_year.png}
 \end{minipage}
-\caption{Capital gains in residential assets}
+\caption{Capital gains in residential assets, by year}
 \label{fig:cg_residential_panels}
 \end{figure}
 \FloatBarrier
@@ -166,7 +166,7 @@ All of which are required to define the desired measure of household returns. Si
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.8\textwidth]{../../Code/Descriptive/Figures/flows_by_asset_mean_by_year.png}
-\caption{Average net investment flows across respondents}
+\caption{Flows by asset, mean by year}
 \label{fig:flows_by_asset_mean_by_year}
 \end{figure}
 \FloatBarrier
@@ -185,7 +185,7 @@ All of which are required to define the desired measure of household returns. Si
 \centering
 \includegraphics[width=\textwidth]{../../Code/Descriptive/Figures/wealth_mean_by_year_agg.png}
 \end{minipage}
-\caption{Mean wealth in asset classes and portfolios}
+\caption{Mean wealth by year}
 \label{fig:wealth_mean_by_year_panels}
 \end{figure}
 \FloatBarrier
@@ -247,7 +247,7 @@ where $y^{net}_{it}$ is the interest income and dividends on core and retirement
 \centering
 \includegraphics[width=\textwidth]{../../Code/Descriptive/Figures/returns_mean_by_year_agg.png}
 \end{minipage}
-\caption{Mean returns for asset classes and portfolios}
+\caption{Mean returns by year}
 \label{fig:returns_mean_by_year_panels}
 \end{figure}
 \FloatBarrier
@@ -273,7 +273,7 @@ where $y^{net}_{it}$ is the interest income and dividends on core and retirement
 \centering
 \includegraphics[width=\textwidth]{../../Code/Descriptive/Figures/returns_hist_r3_pooled.png}
 \end{minipage}
-\caption{Histogram for distribution of returns to the defined asset classes}
+\caption{Returns histogram, components (pooled across survey years)}
 \label{fig:returns_histogram_components_pooled}
 \end{figure}
 \FloatBarrier
@@ -292,7 +292,7 @@ where $y^{net}_{it}$ is the interest income and dividends on core and retirement
 \centering
 \includegraphics[width=\textwidth]{../../Code/Descriptive/Figures/returns_hist_r5_pooled.png}
 \end{minipage}
-\caption{Histogram for distribution of returns to the defined portfolios}
+\caption{Returns histogram, core and retirement vs.\ net wealth (pooled across survey years)}
 \label{fig:returns_histogram_agg_pooled}
 \end{figure}
 \FloatBarrier
@@ -317,7 +317,7 @@ Respondents are asked to give an answer between 1 and 10. This set of trust ques
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.72\textwidth]{../../Code/Descriptive/Figures/39_trust_general_2020_hist.png}
-\caption{Distribution of responses to the \texttt{Trust} survey question}
+\caption{Distribution of generalized trust among sample respondents (2020)}
 \label{fig:39_trust_general_2020_hist}
 \end{figure}
 \FloatBarrier
@@ -327,7 +327,7 @@ Respondents are asked to give an answer between 1 and 10. This set of trust ques
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.72\textwidth]{../../Code/Descriptive/Figures/trust_mean_by_race_eth_2020.png}
-\caption{Average \texttt{Trust} responses conditional on \texttt{Race}}
+\caption{Mean generalized trust by race/ethnicity (2020)}
 \label{fig:trust_mean_by_race_eth_2020}
 \end{figure}
 \FloatBarrier
@@ -392,7 +392,7 @@ Respondents are asked to give an answer between 1 and 10. This set of trust ques
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.8\textwidth]{../../Code/Descriptive/Figures/39_pooled_r5_vs_netwealth_pct.png}
-\caption{Returns to net wealth vs.\ net wealth percentile}
+\caption{Return to net wealth vs.\ net wealth percentile}
 \label{fig:39_r5_netwealth_pct}
 \end{figure}
 \FloatBarrier
@@ -401,14 +401,14 @@ Respondents are asked to give an answer between 1 and 10. This set of trust ques
 
 \par \texttt{Age at Interview} (\texttt{RwAGEY\_B}) and \texttt{Years of Schooling} are control variables which are thought to matter empirically for both trust and returns. Since each of these play a unique role in the HRS data (education time-invariant, age is higher on average due to oversampling of retirees), a decomposition of returns by each of these should be considered. Table~\ref{tab:39_r5_age_bin} reports moments of the returns to net wealth distribution conditional on age. 
 
-\InputStataRegTableCompact{\textbf{Return to Net Wealth by Age}}{tab:39_r5_age_bin}{../../Code/Descriptive/Tables/39_r5_by_age_bin.tex}{}
+\InputStataRegTableCompact{\textbf{Return to Net Wealth by Age Bin}}{tab:39_r5_age_bin}{../../Code/Descriptive/Tables/39_r5_by_age_bin.tex}{Return to net wealth (5\% winsorized), pooled person-years. Age bins are 5-year groups.}
 \FloatBarrier
 
 \par A very interesting feature of the sample is that there are less than twenty respondents between the ages of 30 and 44, and less than 40 respondents between the ages of 30 and 49. The majority of the respondents are between the ages of 60 and 79.
 
 \par Table~\ref{tab:39_r5_educ_cat} reports moments of the returns to net wealth distribution conditional on education. In general, it appears that more years of schooling lead to lower average returns to net wealth, but also less volatility as measured by the standard deviation. Interestingly, the group of respondents that did not complete high school have the highest returns on average in the sample. 
 
-\InputStataRegTableCompact{\textbf{Return to Net Wealth by Education}}{tab:39_r5_educ_cat}{../../Code/Descriptive/Tables/39_r5_by_educ_cat.tex}{ Education categories are constructed from RAND HRS years of education: Less HS ($<12$), HS Grad ($=12$), Some College ($13$--$15$), College ($=16$), Postgrad ($>16$).}
+\InputStataRegTableCompact{\textbf{Return to Net Wealth by Education Category}}{tab:39_r5_educ_cat}{../../Code/Descriptive/Tables/39_r5_by_educ_cat.tex}{Return to net wealth (5\% winsorized), pooled person-years. Education categories are constructed from RAND HRS years of education: Less HS ($<12$), HS Grad ($=12$), Some College ($13$--$15$), College ($=16$), Postgrad ($>16$).}
 \FloatBarrier
 
 \subsubsection{Return vs.\ labor force participation status}
@@ -418,7 +418,7 @@ Respondents are asked to give an answer between 1 and 10. This set of trust ques
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.85\textwidth]{../../Code/Descriptive/Figures/39_pooled_r5_mean_by_year_inlbrf.png}
-\caption{Average returns to net wealth conditional on \texttt{Labor Force Status}}
+\caption{Mean return to net wealth and labor-force status by survey year}
 \label{fig:39_r5_lf_year}
 \end{figure}
 \FloatBarrier
@@ -430,7 +430,7 @@ Respondents are asked to give an answer between 1 and 10. This set of trust ques
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.8\textwidth]{../../Code/Descriptive/Figures/39_pooled_r5_vs_trust.png}
-\caption{Scatterplot of returns to net wealth vs.\ \texttt{Trust}}
+\caption{Returns to net wealth vs.\ trust pooled across survey years}
 \label{fig:39_r5_vs_trust}
 \end{figure}
 \FloatBarrier
@@ -444,13 +444,13 @@ Respondents are asked to give an answer between 1 and 10. This set of trust ques
 
 \par Table~\ref{tab:41_asset_shares_by_wealth} shows that asset composition shifts sharply across the wealth distribution. At the bottom, balance sheets are dominated by debt, with very little exposure to business, stocks, or other real estate. Moving up the distribution, risky assets become more important: stocks, business wealth, and other real estate all rise with wealth, and at the very top business ownership becomes especially prominent. This is consistent with the idea that observed portfolio exposure is highly heterogeneous across households.
 
-\InputStataRegTableCompact{\textbf{Asset and Debt Composition by Core Wealth Fractiles}}{tab:41_asset_shares_by_wealth}{../../Code/Analysis/Tables/41_table6_asset_shares_by_wealth.tex}{Mean share of gross wealth in core assets in each of the asset/liability classes, computed as fractile of the core wealth distribution. Fractile boundaries use rank within the same pooled regression person-year sample as Tables~\ref{tab:39_r5_age_bin} and~\ref{tab:39_r5_educ_cat}. Safe assets $=$ bonds + checking/saving.}
+\InputStataRegTableCompact{\textbf{Asset Composition by Wealth (Core) Fractiles}}{tab:41_asset_shares_by_wealth}{../../Code/Analysis/Tables/41_table6_asset_shares_by_wealth.tex}{Mean share of gross wealth in core assets in each of the asset/liability classes, computed as fractile of the core wealth distribution. Fractile boundaries use rank within the same pooled regression person-year sample as Tables~\ref{tab:39_r5_age_bin} and~\ref{tab:39_r5_educ_cat}. Safe assets $=$ bonds + checking/saving.}
 \FloatBarrier
 
 \par The broader portfolio aggregates in Table~\ref{tab:41_port_shares_by_wealth} tell a similar story. Residential wealth is the dominant asset for much of the middle of the distribution, while core assets take over at the top, and retirement assets are largest in the upper-middle and upper-tail groups rather than at the very top. Debt shares fall rapidly with wealth, so leverage is concentrated in the lower part of the distribution.
 
 
-\InputStataRegTableCompact{\textbf{Asset Class Composition by Net-Wealth Fractiles}}{tab:41_port_shares_by_wealth}{../../Code/Analysis/Tables/41_table7_port_shares_by_wealth.tex}{Mean share of gross wealth in each broad asset/liability class, computed within net-wealth fractiles for the same pooled regression person-year sample as Tables~\ref{tab:39_r5_age_bin} and~\ref{tab:39_r5_educ_cat}. Core $=$ business + stocks + bonds + checking/savings + other real estate. Total debt $=$ long-term debt + other debt.}
+\InputStataRegTableCompact{\textbf{Portfolio Composition by Net-Wealth Fractiles}}{tab:41_port_shares_by_wealth}{../../Code/Analysis/Tables/41_table7_port_shares_by_wealth.tex}{Mean share of gross wealth in each broad asset/liability class, computed within net-wealth fractiles for the same pooled regression person-year sample as Tables~\ref{tab:39_r5_age_bin} and~\ref{tab:39_r5_educ_cat}. Core $=$ business + stocks + bonds + checking/savings + other real estate. Total debt $=$ long-term debt + other debt.}
 \FloatBarrier
 
 \par These composition patterns matter in Section~\ref{sec:exts}, where I revisit the main specifications by using the portfolio shares as a proxy for risk exposure.

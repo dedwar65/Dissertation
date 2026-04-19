@@ -60,6 +60,16 @@
 
 \par First, allowing for the hump-shaped relationship between trust and returns by adding the quadratic term for trust not only increases the predictive power of returns, but considerably increases the explained variation of the model. Second, as for other variables which reject the null hypothesis of no significant effect on returns, wealth and age add the most to explained variation, followed by labor force participation status and years of education. These controls represent the minimal, baseline specification of the model, captured by column 3 in table ~\ref{tab:38_avg_returns}. A final specification, with additional demographic variables, is robust to the hump-shaped relationship, as well as the predictive power of labor force participation status for returns.\footnote{As we will see later, Race and Gender are variables which predict trust well, so they are additional demographic variables which may be of interest here.}
 
+\par Figure~\ref{fig:47_avg_returns_hist} shows the distribution of respondent-level average returns to net wealth in the final average-return estimation sample. Even after the 5\% winsorization used throughout the main analysis, the cross section remains dispersed, which helps motivate the move from average returns to the person-year pooled specification.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.72\textwidth]{../../Code/Analysis/Figures/47_avg_returns_hist.png}
+  \caption{Distribution of average returns to net wealth in the final average-return sample.}
+  \label{fig:47_avg_returns_hist}
+\end{figure}
+\FloatBarrier
+
 \subsection{Pooled regression model}
 
 \par With the implicit assumption that the 2020 trust measure is constant for respondents, then the hump-shaped relationship holds between trust and long-run, average returns to net wealth in the sample. A key object of analysis in the literature interested in measuring realized returns is the estimated persistent component of returns. To build toward this, we move to the panel regression model \[r^{net}_{it} = \lambda_t + X_{it}'\beta + \varepsilon_{it}.\] In table ~\ref{tab:38_pooled}, I  show that the hump-shaped relationship persists in the pooled model with the baseline set of controls and with the maximal set of controls.
@@ -290,9 +300,14 @@ Setting this derivative to zero gives the critical point $\textit{Trust}^* = -\b
 
 \par The visual pattern is reassuring. The fitted maxima all fall in the same moderate range already emphasized by Table~\ref{tab:38_trust_star}, and they do so in a part of the trust distribution with substantial empirical support. I omit the FE model from this comparison because trust and trust$^2$ are absorbed by the within transformation and therefore are not estimated directly in the FE return equation. I also omit RE because the specification tests reported earlier reject it in favor of CRE.
 
-\subsection{Evaluating predicted returns by race}
+\subsection{Predicted vs Actual returns by race}
 
-\par An important finding in the HRS data is that i) \texttt{NH Black} racial category seems to predict trust well, ii) standard regression of returns to net wealth on race shows \texttt{NH Black} racial category seems to predicts returns, and iii) when trust (and trust$^2$) are included as regressors, the coefficients for the \texttt{NH Black} racial category are no longer statistically significant. The combination of these results suggests that it may be worthwhile to study the predicted returns by racial group.   
+\par An important finding in the HRS data is that i) the \texttt{NH Black} racial category predicts trust well, ii) regressions of returns to net wealth on race without trust show nontrivial racial differences, and iii) once trust (and trust$^2$) enter the return regressions, those differences attenuate. Table~\ref{tab:47_race_no_trust} summarizes the no-trust race coefficients for the average-return and pooled specifications using the reduced and full control sets.
+
+\InputStataRegTableCompact{\textbf{Race Coefficients in No-Trust Average-Return and Pooled Specifications}}{tab:47_race_no_trust}{../../Code/Analysis/Tables/47_table1_race_no_trust.tex}{Columns~\textit{(1)--(2)} are cross-sectional OLS of 5\% winsorized average returns to net wealth; columns~\textit{(3)--(4)} are pooled person-year OLS of 5\% winsorized returns to net wealth with standard errors clustered by household. In each model family, the reduced column includes race together with the baseline return controls, while the full column adds the extended demographic controls. Only race coefficients are displayed.}
+\FloatBarrier
+
+\subsubsection{Predicted returns by race}
 
 \par Figure~\ref{fig:38_predicted_returns_by_race} does this for the final displayed average-return, pooled OLS, FE, and CRE models. For the panel specifications, I first predict returns at the person-year level on the estimation sample and then average those fitted values within respondent, so each respondent contributes one fitted-return value before taking race-specific means. Within each panel, a point above zero indicates that the group's average predicted return exceeds the model-wide average, while a point below zero indicates the opposite.
 
@@ -327,3 +342,37 @@ Setting this derivative to zero gives the critical point $\textit{Trust}^* = -\b
 \end{figure}
 
 \par The comparison is useful because it compresses the fitted racial differences into a single object that can be compared across model families. The FE panel should be interpreted more cautiously than the other three. In the FE model, the predictions are formed after absorbing the time-invariant regressors into the household effect, so they do not separately identify the roles of trust, trust$^2$, education, gender, race/ethnicity, or U.S.-born status. Put differently, the FE predicted values summarize fitted returns once all time-invariant heterogeneity has been loaded into the fixed effect term, whereas the average-return, pooled, and CRE panels retain direct roles for those observables in the fitted outcome.
+
+\subsubsection{Actual returns by race}
+
+\par Figure~\ref{fig:47_actual_returns_by_race} repeats the same comparison using realized returns rather than fitted values. For the panel specifications, I restrict to each model's estimation sample and then average person-year returns within respondent before taking race-specific means, so the construction is directly parallel to the predicted-return figures.
+
+\begin{figure}[H]
+  \centering
+  \begin{subfigure}{0.45\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{../../Code/Analysis/Figures/47_actual_returns_by_race_avg.png}
+    \caption{Average returns}
+  \end{subfigure}\hfill
+  \begin{subfigure}{0.45\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{../../Code/Analysis/Figures/47_actual_returns_by_race_pooled.png}
+    \caption{Pooled OLS}
+  \end{subfigure}
+
+  \begin{subfigure}{0.45\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{../../Code/Analysis/Figures/47_actual_returns_by_race_fe.png}
+    \caption{FE}
+  \end{subfigure}\hfill
+  \begin{subfigure}{0.45\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{../../Code/Analysis/Figures/47_actual_returns_by_race_cre.png}
+    \caption{CRE}
+  \end{subfigure}
+
+  \caption{Race-specific mean actual return minus the overall mean actual return for each specification (subfigure titles). The construction mirrors Figure~\ref{fig:38_predicted_returns_by_race}, but replaces fitted values with realized returns on the same estimation samples.}
+  \label{fig:47_actual_returns_by_race}
+\end{figure}
+
+\par The realized-return comparison is useful as a check on the fitted-return evidence. The same broad ranking can be seen in the average-return and pooled panels, while the FE and CRE panels summarize realized returns on the samples used to estimate those models rather than an explicit decomposition of the race effect itself.

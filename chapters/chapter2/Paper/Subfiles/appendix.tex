@@ -40,39 +40,24 @@
 \end{table}%
 }
 
-% Constrain very tall tables to both page width and height.
-\providecommand{\InputStataRegTableCompactFitPage}[4]{%
-\begin{table}[p]
-\centering
-\caption{#1}%
-\label{#2}%
-\begin{threeparttable}
-\begingroup
-\footnotesize
-\setlength{\tabcolsep}{3pt}%
-\renewcommand{\arraystretch}{0.90}%
-\begin{adjustbox}{max totalsize={\textwidth}{0.74\textheight},center}
-\input{#3}%
-\end{adjustbox}
-\endgroup
-\begin{tablenotes}[flushleft]
-\footnotesize
-\item \ChapterTableNoteText{#4}%
-\end{tablenotes}
-\end{threeparttable}
-\end{table}%
-}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Determinants of trust}
 \label{sec:appendix}
 
 \par The focus of this paper is the general trust measure. Table~\ref{tab:42_trust_determinants} describes the set of controls and determinants of general trust. The first column includes standard demographics (gender, education, marital status, and race/ethnicity) while the second column adds variables more unique to the 2020 wave of the HRS questionnaire such as hometown population size and the \say{Potential for Deception} measures for social security, medicare/medicaid, banks, financial advisors, mutual funds, and insurance companies. The third column adds health conditions, insurance coverage, life insurance, and marital history. The fourth column repeats that specification and adds an indicator for leaving any bequest. Columns~\textit{(2)--(4)} include census region; columns~\textit{(1)--(4)} include five-year age-bin fixed effects (coefficients omitted to save space). Below the main fit statistics, the table reports Wald tests for the \say{Potential for Deception} block and joint tests for age bins, race/ethnicity, and region where those terms appear in the column.
 
-\InputStataRegTableCompactFitPage{\textbf{Determinants of General Trust}}{tab:42_trust_determinants}{../../Code/Analysis/Tables/42_table1_trust_determinants.tex}{OLS. Heteroskedasticity-robust standard errors. Column~\textit{(1)}: demographics, depression, and labor force. Column~\textit{(2)}: adds population size, wealth deciles, region, born in U.S., and six \say{Potential for Deception} items. Column~\textit{(3)}: adds health conditions, Medicare/Medicaid, life insurance, and marital history. Column~\textit{(4)}: same as column~\textit{(3)} plus an indicator for any bequest. Age-bin fixed effects are included in all columns but omitted from the body of the table. Region is included in columns~\textit{(2)--(4)} only. The footer lists the deception joint $p$-value and joint tests for age, race, and region.}
+\InputStataRegTableCompact{\textbf{Determinants of General Trust}}{tab:42_trust_determinants}{../../Code/Analysis/Tables/42_table1_trust_determinants.tex}{OLS. Heteroskedasticity-robust standard errors. Column~\textit{(1)}: demographics, depression, and labor force. Column~\textit{(2)}: adds population size, wealth deciles, region, born in U.S., and six \say{Potential for Deception} items. Column~\textit{(3)}: adds health conditions, Medicare/Medicaid, life insurance, and marital history. Column~\textit{(4)}: same as column~\textit{(3)} plus an indicator for any bequest. Age-bin fixed effects are included in all columns but omitted from the body of the table. Region is included in columns~\textit{(2)--(4)} only. The footer lists the deception joint $p$-value and joint tests for age, race, and region.}
 \FloatBarrier
 
 \par As \cite{Alesina2000} suggests, demographic variables tend to determine trust. In the HRS data, the estimated coefficients for non-Hispanic Black and for marital status have the strongest significance; the race coefficient is negative, consistent with \cite{Alsan2018}. Depression is negative and significant across specifications.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Race coefficients without trust in panel models}
+
+\par Table~\ref{tab:47_race_no_trust_panel} extends the no-trust race comparison to the panel setting. The FE columns report second-stage cross-sectional regressions of the estimated household fixed effect from no-trust FE first stages, while the CRE columns report the corresponding no-trust CRE return regressions. The point is not to force a single structural interpretation across these estimators, but to check whether the sign and rough magnitude of the race coefficients remain similar once the model class changes.
+
+\InputStataRegTableCompact{\textbf{Race Coefficients in No-Trust FE and CRE Specifications}}{tab:47_race_no_trust_panel}{../../Code/Analysis/Tables/47_table2_race_no_trust_panel.tex}{FE columns report second-stage OLS of the estimated household fixed effect from no-trust FE specifications; CRE columns report no-trust CRE regressions of 5\% winsorized returns to net wealth. In each model family, the reduced column includes race with the baseline return controls, while the full column adds the extended demographic controls. Only race coefficients are displayed.}
+\FloatBarrier
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Measures of income}

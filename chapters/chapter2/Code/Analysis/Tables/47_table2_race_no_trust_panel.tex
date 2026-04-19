@@ -1,0 +1,19 @@
+{
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{tabular*}{\linewidth}{@{\hskip\tabcolsep\extracolsep\fill}l*{4}{D{.}{.}{-1}}}
+\toprule
+                    &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}\\
+                    &\multicolumn{1}{c}{FE red.}&\multicolumn{1}{c}{FE full}&\multicolumn{1}{c}{CRE red.}&\multicolumn{1}{c}{CRE full}\\
+\midrule
+NH Black          &        0.29\sym{***}&        0.27\sym{***}&        0.01\sym{*}  &        0.01\sym{**} \\
+                    &      (0.01)         &      (0.01)         &      (0.00)         &      (0.00)         \\
+Hispanic          &        0.18\sym{***}&        0.22\sym{***}&       -0.01\sym{**} &       -0.00         \\
+                    &      (0.01)         &      (0.01)         &      (0.01)         &      (0.01)         \\
+NH Other          &        0.10\sym{***}&        0.14\sym{***}&       -0.01         &       -0.00         \\
+                    &      (0.02)         &      (0.02)         &      (0.01)         &      (0.01)         \\
+\midrule
+N                   &    21983.00         &    21891.00         &   102711.00         &   102091.00         \\
+Race joint $p$      &        0.00         &        0.00         &        0.02         &        0.14         \\
+\bottomrule
+\end{tabular*}
+}

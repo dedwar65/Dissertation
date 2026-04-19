@@ -1,0 +1,18 @@
+{
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{tabular*}{\linewidth}{@{\hskip\tabcolsep\extracolsep\fill}l*{3}{D{.}{.}{-1}}}
+\toprule
+                    &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}\\
+                    &\multicolumn{1}{c}{Raw}&\multicolumn{1}{c}{1% wins.}&\multicolumn{1}{c}{5% wins.}\\
+\midrule
+Trust               &        0.03         &        0.04\sym{*}  &        0.04\sym{***}\\
+                    &      (0.03)         &      (0.02)         &      (0.02)         \\
+Trust$^2$           &       -0.00         &       -0.00         &       -0.00\sym{**} \\
+                    &      (0.00)         &      (0.00)         &      (0.00)         \\
+\midrule
+N                   &      592.00         &      592.00         &      592.00         \\
+Adj.\ R$^2$         &        0.11         &        0.11         &        0.09         \\
+Trust joint $p$     &        0.44         &        0.11         &        0.02         \\
+\bottomrule
+\end{tabular*}
+}
