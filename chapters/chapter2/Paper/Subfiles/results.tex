@@ -311,7 +311,7 @@ Setting this derivative to zero gives the critical point $\textit{Trust}^* = -\b
 
 \par Figure~\ref{fig:38_predicted_returns_by_race} does this for the final displayed average-return, pooled OLS, FE, and CRE models. For the panel specifications, I first predict returns at the person-year level on the estimation sample and then average those fitted values within respondent, so each respondent contributes one fitted-return value before taking race-specific means. Within each panel, a point above zero indicates that the group's average predicted return exceeds the model-wide average, while a point below zero indicates the opposite.
 
-\par In each of the specifications, the mean predicted returns are higher on average for \texttt{NH Black} respondents. Notice that, in the Pooled OLS and CRE versions of the model, the coefficients on the trust terms are allowed to be estimated. These are the same figures which shows that a significant deviation of mean predicted returns for black respondents. The FE model, which does not estimate the effect of time-invariant trust on returns, estimates a deviation closer to zero (though still positive). No other racial categories show a robust, positive deviation from mean predicted returns.
+\par In each of the specifications, the mean predicted returns are higher on average for \texttt{NH Black} respondents. In the pooled OLS and CRE versions of the model, the trust terms are estimated directly, and these are the same figures that show the clearest positive deviation in mean predicted returns for Black respondents. The FE model, which does not estimate the effect of time-invariant trust on returns, produces a deviation closer to zero (though still positive). No other racial categories show a robust, positive deviation from mean predicted returns.
 
 \begin{figure}[H]
   \centering
@@ -345,34 +345,13 @@ Setting this derivative to zero gives the critical point $\textit{Trust}^* = -\b
 
 \subsubsection{Actual returns by race}
 
-\par Figure~\ref{fig:47_actual_returns_by_race} repeats the same comparison using realized returns rather than fitted values. For the panel specifications, I restrict to each model's estimation sample and then average person-year returns within respondent before taking race-specific means, so the construction is directly parallel to the predicted-return figures.
+\par Figure~\ref{fig:47_actual_returns_by_race} makes the realized-return comparison in the most direct way: I first average 5\% winsorized returns to net wealth within respondent over the observed panel, then subtract the overall respondent-level mean from each race group's respondent-level average. Because this object is built directly from realized returns rather than from any fitted model, it is common across the specifications above.
 
 \begin{figure}[H]
   \centering
-  \begin{subfigure}{0.45\textwidth}
-    \centering
-    \includegraphics[width=\linewidth]{../../Code/Analysis/Figures/47_actual_returns_by_race_avg.png}
-    \caption{Average returns}
-  \end{subfigure}\hfill
-  \begin{subfigure}{0.45\textwidth}
-    \centering
-    \includegraphics[width=\linewidth]{../../Code/Analysis/Figures/47_actual_returns_by_race_pooled.png}
-    \caption{Pooled OLS}
-  \end{subfigure}
-
-  \begin{subfigure}{0.45\textwidth}
-    \centering
-    \includegraphics[width=\linewidth]{../../Code/Analysis/Figures/47_actual_returns_by_race_fe.png}
-    \caption{FE}
-  \end{subfigure}\hfill
-  \begin{subfigure}{0.45\textwidth}
-    \centering
-    \includegraphics[width=\linewidth]{../../Code/Analysis/Figures/47_actual_returns_by_race_cre.png}
-    \caption{CRE}
-  \end{subfigure}
-
-  \caption{Race-specific mean actual return minus the overall mean actual return for each specification (subfigure titles). The construction mirrors Figure~\ref{fig:38_predicted_returns_by_race}, but replaces fitted values with realized returns on the same estimation samples.}
+  \includegraphics[width=0.62\linewidth]{../../Code/Analysis/Figures/47_actual_returns_by_race.png}
+  \caption{Race-specific mean realized return minus the overall respondent-level mean realized return. Each respondent first contributes one average realized return to net wealth, computed over the observed panel, before the race-specific means are formed.}
   \label{fig:47_actual_returns_by_race}
 \end{figure}
 
-\par The realized-return comparison is useful as a check on the fitted-return evidence. The same broad ranking can be seen in the average-return and pooled panels, while the FE and CRE panels summarize realized returns on the samples used to estimate those models rather than an explicit decomposition of the race effect itself.
+\par The realized-return comparison is useful as a check on the fitted-return evidence because it removes the model-specific machinery and looks directly at the respondent-level return averages in the data. In this graph, \texttt{NH White} respondents lie slightly below the overall respondent-level mean, while the other three groups lie above it, with the largest positive deviation for \texttt{NH Other}.

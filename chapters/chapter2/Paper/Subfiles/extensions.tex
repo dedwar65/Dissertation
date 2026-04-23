@@ -228,8 +228,6 @@ r^{net}_{it}
 
 \par The figure shows that the implied maxima remain in the same interior part of the trust distribution as in the main results. This matters for interpretation: once portfolio shares are added, the estimated peak of the fitted trust-return profile still lies in a region of trust with substantial empirical support rather than at the boundary of the observed data.
 
-\subsection{Predicted vs Actual returns by race}
-
 \subsubsection{Predicted returns by race}
 
 \par Figure~\ref{fig:41_predicted_returns_by_race_shares} extends the race-based comparison of fitted returns to the portfolio-share specifications. As in the main results, each point reports a race group's mean predicted return relative to the overall mean predicted return from that model. For pooled OLS, FE, and CRE, I first predict returns at the person-year level on the estimation sample and then average those fitted values within respondent, so each respondent contributes one fitted-return value before taking race-specific means.
@@ -268,43 +266,7 @@ r^{net}_{it}
 
 \par The extension is informative because it asks whether the fitted racial pattern is materially changed once portfolio composition is added to the specification. As before, the FE panel requires a narrower interpretation: these fitted values are constructed after absorbing the time-invariant regressors into the respondent effect, so they do not separately identify trust, trust$^2$, education, gender, race/ethnicity, or U.S.-born status. The average-return, pooled OLS, and CRE panels, by contrast, retain direct fitted roles for those observables while also conditioning on the portfolio-share controls.
 
-\subsubsection{Actual returns by race}
-
-\par Figure~\ref{fig:47_actual_returns_by_race_shares} repeats the same exercise with realized returns on the share-augmented estimation samples. As in the main results, pooled OLS, FE, and CRE first average person-year returns within respondent before taking race-specific means, so the comparison remains parallel to the fitted-return figures.
-
-\begin{figure}[!t]
-\centering
-\begin{subfigure}{0.45\textwidth}
-\centering
-\includegraphics[width=\linewidth]{../../Code/Analysis/Figures/47_actual_returns_by_race_shares_avg.png}
-\caption{Average returns}
-\end{subfigure}%
-\hfill
-\begin{subfigure}{0.45\textwidth}
-\centering
-\includegraphics[width=\linewidth]{../../Code/Analysis/Figures/47_actual_returns_by_race_shares_pooled.png}
-\caption{Pooled OLS}
-\end{subfigure}
-
-\vspace{-0.8em}
-
-\begin{subfigure}{0.45\textwidth}
-\centering
-\includegraphics[width=\linewidth]{../../Code/Analysis/Figures/47_actual_returns_by_race_shares_fe.png}
-\caption{FE}
-\end{subfigure}%
-\hfill
-\begin{subfigure}{0.45\textwidth}
-\centering
-\includegraphics[width=\linewidth]{../../Code/Analysis/Figures/47_actual_returns_by_race_shares_cre.png}
-\caption{CRE}
-\end{subfigure}
-\caption{Race-specific mean actual return minus the overall mean actual return for each specification with portfolio-share controls (subfigure titles). The construction matches Figure~\ref{fig:41_predicted_returns_by_race_shares}, but uses realized returns on the corresponding estimation samples.}
-\label{fig:47_actual_returns_by_race_shares}
-\end{figure}
-% \FloatBarrier
-
-\par The realized-return comparison is useful because it shows whether the fitted racial pattern remains visible after conditioning on portfolio composition and then looking directly at realized outcomes on the same samples. The average-return and pooled panels remain the most directly interpretable for this purpose, while the FE and CRE panels summarize realized returns on the estimation samples used by the panel models.
+\par The realized-return comparison in Figure~\ref{fig:47_actual_returns_by_race} is model-free, so I do not repeat it here. The useful comparison in this extension is therefore whether adding portfolio shares materially changes the fitted race pattern relative to that common realized-return benchmark.
 
 \subsection{The estimated distribution of fixed effects}
 
