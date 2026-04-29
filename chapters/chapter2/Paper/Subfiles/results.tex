@@ -304,7 +304,7 @@ Setting this derivative to zero gives the critical point $\textit{Trust}^* = -\b
 
 \par An important finding in the HRS data is that i) the \texttt{NH Black} racial category predicts trust well, ii) regressions of returns to net wealth on race without trust show nontrivial racial differences, and iii) once trust (and trust$^2$) enter the return regressions, those differences attenuate. Table~\ref{tab:47_race_no_trust} summarizes the no-trust race coefficients for the average-return and pooled specifications using the reduced and full control sets.
 
-\InputStataRegTableCompact{\textbf{Race Coefficients in No-Trust Average-Return and Pooled Specifications}}{tab:47_race_no_trust}{../../Code/Analysis/Tables/47_table1_race_no_trust.tex}{Columns~\textit{(1)--(2)} are cross-sectional OLS of 5\% winsorized average returns to net wealth; columns~\textit{(3)--(4)} are pooled person-year OLS of 5\% winsorized returns to net wealth with standard errors clustered by household.}
+\InputStataRegTableCompact{\textbf{Race Coefficients in No-Trust Average-Return and Pooled Specifications}}{tab:47_race_no_trust}{../../Code/Analysis/Tables/47_table1_race_no_trust.tex}{Columns~\textit{(1)--(2)} are cross-sectional OLS of 5\% winsorized average returns to net wealth; columns~\textit{(3)--(4)} are pooled person-year OLS of 5\% winsorized returns to net wealth with standard errors clustered by household. In each model family, the reduced column includes race together with the baseline return controls, while the full column adds the extended demographic controls. Only race coefficients are displayed.}
 \FloatBarrier
 
 \subsubsection{Predicted returns by race}
@@ -337,7 +337,7 @@ Setting this derivative to zero gives the critical point $\textit{Trust}^* = -\b
     \caption{CRE}
   \end{subfigure}
 
-  \caption{Race-specific mean predicted return minus the overall mean predicted return for each regression model.}
+  \caption{Race-group deviations from the overall mean predicted return by specification.}
   \label{fig:38_predicted_returns_by_race}
 \end{figure}
 
@@ -345,13 +345,13 @@ Setting this derivative to zero gives the critical point $\textit{Trust}^* = -\b
 
 \subsubsection{Actual returns by race}
 
-\par Figure~\ref{fig:47_actual_returns_by_race} makes the realized-return comparison in the most direct way: I first average 5\% winsorized returns to net wealth within respondent over the observed panel, then subtract the overall respondent-level mean from each race group's respondent-level average. Because this object is built directly from realized returns rather than from any fitted model, it is common across the specifications above.
+\par Figure~\ref{fig:47_actual_returns_by_race} makes the realized-return comparison in the most direct way: I first average 5\% winsorized returns to net wealth within respondent over the observed panel, then estimate the race-specific means of those respondent-level averages and subtract the overall respondent-level mean. The confidence intervals therefore summarize the sampling uncertainty around the race-specific respondent means. Because this object is built directly from realized returns rather than from any fitted model, it is common across the specifications above.
 
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.62\linewidth]{../../Code/Analysis/Figures/47_actual_returns_by_race.png}
-  \caption{Race-specific mean realized return minus the overall respondent-level mean realized return.}
+  \caption{Race-group deviations from the overall mean realized return, with 95\% confidence intervals for the respondent-level race means.}
   \label{fig:47_actual_returns_by_race}
 \end{figure}
 
-\par The realized-return comparison is useful as a check on the fitted-return evidence because it removes the model-specific machinery and looks directly at the respondent-level return averages in the data. In this graph, \texttt{NH White} respondents lie slightly below the overall respondent-level mean, while the other three groups lie above it, with the largest positive deviation for \texttt{NH Other}.
+\par The realized-return comparison is useful as a check on the fitted-return evidence because it removes the model-specific machinery and looks directly at the respondent-level return averages in the data. The point estimates still place \texttt{NH White} slightly below the overall respondent-level mean, while the other three groups lie above it, with the largest positive deviation for \texttt{NH Other}. The confidence intervals also make clear how much noise surrounds those respondent-level race means.
