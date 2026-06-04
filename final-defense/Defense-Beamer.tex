@@ -31,7 +31,7 @@
 \institute[JHU]{Johns Hopkins University}
 \date[June 22, 2026]{Final Dissertation Defense \\ June 22, 2026}
 
-\newcommand{\assetpath}[1]{outputs/manual-20260601-final-defense/presentations/final-defense/assets/#1}
+\newcommand{\assetpath}[1]{assets/#1}
 \newcommand{\floatingnavbutton}[2]{%
   \begin{tikzpicture}[remember picture,overlay]
     \node[anchor=south east] at ([xshift=-0.5em,yshift=0.8em]current page.south east) {\hyperlink{#1}{\beamerbutton{#2}}};
@@ -73,11 +73,11 @@
   \begin{itemize}
     \item This dissertation asks how heterogeneous rates of return reshape the explanation, performance, and measurement of wealth inequality.
     \item The common theme is that wealth inequality is not only about who saves more; it is also about who earns different returns, why, and how those differences should be evaluated.
-    \item Chapter 1 is structural macro, Chapter 2 is empirical household finance, and Chapter 3 is inequality measurement under ambiguity.
+    \item Chapter 1 is structural macro, Chapter 2 is empirical household finance, and Chapter 3 is an alternative inequality measurement.
   \end{itemize}
 
   \vspace{0.5em}
-  \textit{Core message: rates of return matter at several margins for understanding household wealth.}
+  \textit{Core message: rates of return matter for understanding differences in household wealth.}
 \end{frame}
 
 \begin{frame}{How the Three Chapters Fit Together}
@@ -129,9 +129,22 @@
     \end{itemize}
 
     \vspace{0.4em}
-    \textit{Takeaway: return heterogeneity materially improves the fit to wealth concentration, with plausible implied dispersion in returns.}
   \end{columns}
 \end{frame}
+
+\begin{frame}[label=ch1-results-cont]{Chapter 1: Main Result (cont.)}
+  \begin{itemize}
+    \item I compare revenue-equivalent taxes (raise 1\% of GDP):
+      \begin{itemize}
+        \item Wealth tax: lowers the gross return for everyone, $1+r-\tau_w$.
+        \item Capital income tax: taxes only positive capital income, $1+(1-\tau_{ci})r$.
+      \end{itemize}
+    \item \textbf{Result:} in this partial-equilibrium exercise, the capital income tax modestly reduces wealth concentration \emph{more} than a flat wealth tax.
+  \end{itemize}
+
+  \vspace{0.6em}
+\end{frame}
+
 
 \section{Chapter 2}
 
@@ -151,7 +164,7 @@
     \column{0.50\textwidth}
     \begin{figure}
       \includegraphics[width=\textwidth]{\assetpath{ch2_trustdist_main.png}}
-      \caption{\scriptsize Estimated return-maximizing trust levels lie in a moderate region of the observed trust distribution.}
+      \caption{\scriptsize Estimated return-maximizing trust levels v.s. observed trust.}
     \end{figure}
 
     \column{0.50\textwidth}
@@ -193,27 +206,35 @@
 \end{frame}
 
 \begin{frame}[shrink=10]{Chapter 3: Data Pattern}
-  \begin{figure}
-    \includegraphics[width=0.72\textwidth]{\assetpath{ch3_gap_main.png}}
-  \end{figure}
+  \begin{columns}
+    \column{0.62\textwidth}
+    \begin{figure}
+      \includegraphics[width=\textwidth]{\assetpath{ch3_gap_main.png}}
+    \end{figure}
 
-  \footnotesize
-  \begin{itemize}
-    \item The raw data show a persistent and economically large racial wealth gap in both net wealth and gross assets.
-    \item This is the empirical benchmark the theoretical inequality measures should speak to.
-  \end{itemize}
+    \column{0.38\textwidth}
+    \scriptsize
+    \begin{itemize}
+      \item The raw data show a persistent and economically large racial wealth gap in both net wealth and gross assets.
+      \item This is the empirical benchmark the theoretical inequality measures should speak to.
+    \end{itemize}
+  \end{columns}
 \end{frame}
 
 \begin{frame}[label=ch3-results,shrink=10]{Chapter 3: Ambiguity-Based Wealth Inequality}
-  \begin{figure}
-    \includegraphics[width=0.70\textwidth]{\assetpath{ch3_measures_main.png}}
-  \end{figure}
+  \begin{columns}
+    \column{0.62\textwidth}
+    \begin{figure}
+      \includegraphics[width=\textwidth]{\assetpath{ch3_measures_main.png}}
+    \end{figure}
 
-  \footnotesize
-  \begin{itemize}
-    \item The objective benchmark understates wealth inequality relative to the ambiguity-based measure for the same wealth distribution.
-    \item This finding holds for both net wealth and gross assets, and the measures track the broad time pattern of the median wealth-gap diagnostics.
-  \end{itemize}
+    \column{0.38\textwidth}
+    \scriptsize
+    \begin{itemize}
+      \item The objective benchmark understates wealth inequality relative to the ambiguity-based measure for the same wealth distribution.
+      \item This holds for both net wealth and gross assets, and the measures track the broad time pattern of the median wealth-gap diagnostics.
+    \end{itemize}
+  \end{columns}
 \end{frame}
 
 \section{Conclusion}
@@ -227,29 +248,6 @@
 
   \vspace{0.6em}
   \textit{Overall conclusion: heterogeneous returns are central both to explaining household wealth inequality and to evaluating it.}
-\end{frame}
-
-\appendix
-\section{Backup Slides}
-
-\begin{frame}{Backup: Chapter 2 Interpretation}
-  \begin{itemize}
-    \item The Chapter 2 result should not be read as \say{more trust is always better}.
-    \item Instead, the evidence points to a moderate amount of trust being associated with the highest fitted returns to net wealth.
-    \item The preferred CRE specification keeps that relationship while also accommodating persistent cross-household return heterogeneity.
-  \end{itemize}
-
-  \floatingnavbutton{ch2-results}{Back to Chapter 2}
-\end{frame}
-
-\begin{frame}{Backup: Chapter 3 Interpretation}
-  \begin{itemize}
-    \item The ambiguity-based ranking is useful when the social planner cares about worst-performing group outcomes under uncertainty about relevant states.
-    \item In the data, this shifts measured inequality upward relative to the objective benchmark.
-    \item So the contribution is not only a new formula; it is a different normative benchmark for wealth inequality.
-  \end{itemize}
-
-  \floatingnavbutton{ch3-results}{Back to Chapter 3}
 \end{frame}
 
 \end{document}
