@@ -1,0 +1,22 @@
+task mode: create
+primary deck-profile: strategy-leadership
+secondary profile gates: appendix-heavy
+required proof objects:
+- dissertation title and framing
+- one main figure or table for chapter 1
+- one main figure and one regression/persistence summary for chapter 2
+- two main figures for chapter 3
+- synthesis and conclusion slides
+source/asset requirements:
+- use local dissertation PDF text as canonical source
+- use locally rendered PDF page crops for figures
+- keep the final deliverable as an editable PPTX
+brand authenticity constraints:
+- neutral academic design suitable for a Johns Hopkins dissertation defense
+- do not invent results or cite figures not supported by the dissertation PDF
+profile-specific QA gates:
+- each slide must have a clear claim
+- chapter slides must surface the empirical or theoretical payoff quickly
+- visuals must remain readable from a distance
+known missing inputs:
+- no user-supplied institutional slide template

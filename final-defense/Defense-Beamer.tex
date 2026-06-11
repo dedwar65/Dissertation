@@ -1,0 +1,253 @@
+\documentclass{beamer}
+
+\mode<presentation>
+{
+  \usetheme{Warsaw}
+  \setbeamercovered{transparent}
+}
+
+\usetheme{Warsaw}
+\setbeamersize{text margin left=4mm}
+\setbeamersize{text margin right=4mm}
+
+\usepackage[utf8]{inputenc}
+\usepackage[backend=bibtex,style=authoryear]{biblatex}
+\addbibresource{thesis.bib}
+
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{adjustbox}
+\usepackage{capt-of}
+\usepackage{threeparttable}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{appendixnumberbeamer}
+\usepackage{dirtytalk}
+
+\title[Dissertation Defense]{Essays on Heterogeneous Returns, Trust, and Household Wealth}
+\author[Edwards]{Decory Edwards}
+\institute[JHU]{Johns Hopkins University}
+\date[June 22, 2026]{Final Dissertation Defense \\ June 22, 2026}
+
+\newcommand{\assetpath}[1]{assets/#1}
+\newcommand{\floatingnavbutton}[2]{%
+  \begin{tikzpicture}[remember picture,overlay]
+    \node[anchor=south east] at ([xshift=-0.5em,yshift=0.8em]current page.south east) {\hyperlink{#1}{\beamerbutton{#2}}};
+  \end{tikzpicture}%
+}
+\newcommand{\centernavbutton}[2]{%
+  \begin{center}
+    \hyperlink{#1}{\beamerbutton{#2}}
+  \end{center}
+}
+\newcommand{\slidetable}[1]{%
+  \begin{center}
+  \begin{adjustbox}{max totalsize={\textwidth}{0.70\textheight}}
+  #1
+  \end{adjustbox}
+  \end{center}
+}
+
+\AtBeginSection[]
+{
+  \begin{frame}{Roadmap}
+    \tableofcontents[currentsection,hideothersubsections]
+  \end{frame}
+}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}{Roadmap}
+  \tableofcontents[hideallsubsections]
+\end{frame}
+
+\section{Introduction}
+
+\begin{frame}{Question and Unifying Theme}
+  \begin{itemize}
+    \item This dissertation asks how heterogeneous rates of return reshape the explanation, performance, and measurement of wealth inequality.
+    \item The common theme is that wealth inequality is not only about who saves more; it is also about who earns different returns, why, and how those differences should be evaluated.
+    \item Chapter 1 is structural macro, Chapter 2 is empirical household finance, and Chapter 3 is an alternative inequality measurement.
+  \end{itemize}
+
+  \vspace{0.5em}
+  \textit{Core message: rates of return matter for understanding differences in household wealth.}
+\end{frame}
+
+\begin{frame}{How the Three Chapters Fit Together}
+  \begin{enumerate}
+    \item \textbf{Chapter 1}: Can return heterogeneity help a standard heterogeneous-agent model match empirical wealth moments?
+    \item \textbf{Chapter 2}: Is there a systematic relationship between trust and returns to net wealth, and can we still estimate a persistent household return component?
+    \item \textbf{Chapter 3}: If wealth is tied to social institutions and historical group structure, does the standard objective benchmark understate wealth inequality?
+  \end{enumerate}
+
+  \vspace{0.6em}
+  \textit{Taken together, the chapters move from explaining wealth concentration, to explaining realized performance, to measuring inequality itself.}
+\end{frame}
+
+\section{Chapter 1}
+
+\begin{frame}{Chapter 1: Matching Wealth Moments with Heterogeneous Returns}
+  \begin{itemize}
+    \item I incorporate return heterogeneity into a standard heterogeneous-agent model and estimate the return distribution needed to match the wealth distribution.
+    \item Labor income uncertainty and life-cycle structure explain part of wealth dispersion, but not enough to reproduce the empirical skewness of wealth.
+    \item Adding return heterogeneity yields a much better fit to SCF wealth moments and implies a more realistic aggregate MPC.
+  \end{itemize}
+
+  \vspace{0.6em}
+  Empirically, this is motivated by evidence that realized household returns vary widely across people \parencite{aflgdmlp20, Daminato2024}.
+\end{frame}
+
+\begin{frame}[label=ch1-results]{Chapter 1: Main Result}
+  \begin{columns}
+    \column{0.56\textwidth}
+    \begin{figure}
+      \includegraphics[width=\textwidth]{\assetpath{ch1_fig1_page31_cropped.png}}
+      \caption{\scriptsize Heterogeneous returns produce a Lorenz curve much closer to the SCF target.}
+    \end{figure}
+
+    \column{0.44\textwidth}
+    \scriptsize
+    \begin{itemize}
+      \item Estimated uniform return distribution:
+      \[
+      R = 1.0204, \qquad \nabla = 0.06833.
+      \]
+      \item Top 5\% wealth share:
+      \begin{itemize}
+        \item Data: 57.4\%
+        \item No heterogeneity: 23.3\%
+        \item Heterogeneity: 58.8\%
+      \end{itemize}
+      \item In the life-cycle model, the aggregate MPC rises substantially once return heterogeneity is introduced.
+    \end{itemize}
+
+    \vspace{0.4em}
+  \end{columns}
+\end{frame}
+
+\begin{frame}[label=ch1-results-cont]{Chapter 1: Main Result (cont.)}
+  \begin{itemize}
+    \item I compare revenue-equivalent taxes (raise 1\% of GDP):
+      \begin{itemize}
+        \item Wealth tax: lowers the gross return for everyone, $1+r-\tau_w$.
+        \item Capital income tax: taxes only positive capital income, $1+(1-\tau_{ci})r$.
+      \end{itemize}
+    \item \textbf{Result:} in this partial-equilibrium exercise, the capital income tax modestly reduces wealth concentration \emph{more} than a flat wealth tax.
+  \end{itemize}
+
+  \vspace{0.6em}
+\end{frame}
+
+
+\section{Chapter 2}
+
+\begin{frame}{Chapter 2: Moderate Trust and Maximum Performance on Financial Investments}
+  \begin{itemize}
+    \item I use the RAND HRS panel to construct returns to net wealth and study their relationship with generalized trust.
+    \item Trust is measured on a 1 to 10 scale in the 2020 HRS module, while the panel structure allows estimation of a persistent household return component.
+    \item Because trust is time-invariant in the HRS, the correlated random effects (CRE) framework is especially useful here.
+  \end{itemize}
+
+  \vspace{0.6em}
+  The broader empirical motivation is that trust is often positively related to economic performance, but the relationship need not be monotone.
+\end{frame}
+
+\begin{frame}[label=ch2-results]{Chapter 2: Main Result}
+  \begin{columns}
+    \column{0.50\textwidth}
+    \begin{figure}
+      \includegraphics[width=\textwidth]{\assetpath{ch2_trustdist_main.png}}
+      \caption{\scriptsize Estimated return-maximizing trust levels v.s. observed trust.}
+    \end{figure}
+
+    \column{0.50\textwidth}
+    \scriptsize
+    \slidetable{
+    \begin{tabular}{lccc}
+      \toprule
+      Specification & Avg. returns & Pooled OLS & CRE \\
+      \midrule
+      Trust$^\ast$ without controls & 6.70 & 6.89 & 6.34 \\
+      Trust$^\ast$ with controls & 7.07 & 7.61 & 6.59 \\
+      \bottomrule
+    \end{tabular}
+    }
+
+    \begin{itemize}
+      \item The fitted relationship between trust and returns to net wealth is hump-shaped.
+      \item The maximum is consistently in a moderate range, roughly between 6 and 7 in the preferred specifications.
+      \item The persistent component remains economically important, and portfolio-share controls change the estimated fixed-effect distribution only modestly.
+    \end{itemize}
+  \end{columns}
+\end{frame}
+
+\section{Chapter 3}
+
+\begin{frame}{Chapter 3: Wealth Inequality Under Ambiguity}
+  \begin{itemize}
+    \item Motivated by Rawls' discussion of justice behind a veil of ignorance, I propose a wealth inequality measure based on choice under ambiguity.
+    \item The key idea is that wealth distributions may need to be ranked using socially relevant states, rather than objective uncertainty alone.
+    \item I then adapt the social-welfare approach to inequality measurement to define an ambiguity-based wealth inequality measure.
+  \end{itemize}
+
+  \vspace{0.6em}
+  \[
+  I^{A} = 1 - \frac{w^{EDE}}{\mu}
+  \]
+
+  \textit{Question: does the standard objective benchmark understate wealth inequality when racial structure is central?}
+\end{frame}
+
+\begin{frame}[shrink=10]{Chapter 3: Data Pattern}
+  \begin{columns}
+    \column{0.62\textwidth}
+    \begin{figure}
+      \includegraphics[width=\textwidth]{\assetpath{ch3_gap_main.png}}
+    \end{figure}
+
+    \column{0.38\textwidth}
+    \scriptsize
+    \begin{itemize}
+      \item The raw data show a persistent and economically large racial wealth gap in both net wealth and gross assets.
+      \item This is the empirical benchmark the theoretical inequality measures should speak to.
+    \end{itemize}
+  \end{columns}
+\end{frame}
+
+\begin{frame}[label=ch3-results,shrink=10]{Chapter 3: Ambiguity-Based Wealth Inequality}
+  \begin{columns}
+    \column{0.62\textwidth}
+    \begin{figure}
+      \includegraphics[width=\textwidth]{\assetpath{ch3_measures_main.png}}
+    \end{figure}
+
+    \column{0.38\textwidth}
+    \scriptsize
+    \begin{itemize}
+      \item The objective benchmark understates wealth inequality relative to the ambiguity-based measure for the same wealth distribution.
+      \item This holds for both net wealth and gross assets, and the measures track the broad time pattern of the median wealth-gap diagnostics.
+    \end{itemize}
+  \end{columns}
+\end{frame}
+
+\section{Conclusion}
+
+\begin{frame}{Conclusion}
+  \begin{itemize}
+    \item \textbf{Chapter 1}: return heterogeneity can match key wealth moments in a structural macro model, with an estimated distribution close to empirical evidence.
+    \item \textbf{Chapter 2}: returns to net wealth exhibit a hump-shaped relationship with trust, and the maximizing level of trust lies in a moderate range between 6 and 7.
+    \item \textbf{Chapter 3}: the ambiguity-based wealth inequality measure implies more inequality than the standard objective benchmark for the same wealth distribution.
+  \end{itemize}
+
+  \vspace{0.6em}
+  \textit{Overall conclusion: heterogeneous returns are central both to explaining household wealth inequality and to evaluating it.}
+\end{frame}
+
+\end{document}
