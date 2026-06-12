@@ -50,12 +50,6 @@
   \end{center}
 }
 
-\AtBeginSection[]
-{
-  \begin{frame}{Roadmap}
-    \tableofcontents[currentsection,hideothersubsections]
-  \end{frame}
-}
 
 \begin{document}
 
@@ -107,10 +101,10 @@
 \begin{frame}[label=ch1-results]{Chapter 1: Main Result}
   \begin{columns}
     \column{0.56\textwidth}
-    \begin{figure}
-      \includegraphics[width=\textwidth]{\assetpath{ch1_fig1_page31_cropped.png}}
-      \caption{\scriptsize Heterogeneous returns produce a Lorenz curve much closer to the SCF target.}
-    \end{figure}
+    \begin{center}
+      \includegraphics[width=\textwidth,height=0.65\textheight,keepaspectratio,trim={0.8in 3.4in 0.8in 5.0in},clip]{\assetpath{ch1_fig1_page31.pdf}}
+    \end{center}
+    \scriptsize\textit{Heterogeneous returns produce a Lorenz curve much closer to the SCF target.}
 
     \column{0.44\textwidth}
     \scriptsize
@@ -125,24 +119,46 @@
         \item No heterogeneity: 23.3\%
         \item Heterogeneity: 58.8\%
       \end{itemize}
-      \item In the life-cycle model, the aggregate MPC rises substantially once return heterogeneity is introduced.
     \end{itemize}
 
-    \vspace{0.4em}
   \end{columns}
 \end{frame}
 
-\begin{frame}[label=ch1-results-cont]{Chapter 1: Main Result (cont.)}
-  \begin{itemize}
-    \item I compare revenue-equivalent taxes (raise 1\% of GDP):
-      \begin{itemize}
-        \item Wealth tax: lowers the gross return for everyone, $1+r-\tau_w$.
-        \item Capital income tax: taxes only positive capital income, $1+(1-\tau_{ci})r$.
-      \end{itemize}
-    \item \textbf{Result:} in this partial-equilibrium exercise, the capital income tax modestly reduces wealth concentration \emph{more} than a flat wealth tax.
-  \end{itemize}
+\begin{frame}[label=ch1-policy]{Chapter 1: Policy Implications — Wealth Distribution}
+  \begin{columns}
+    \column{0.55\textwidth}
+    \begin{center}
+      \includegraphics[width=\textwidth,height=0.68\textheight,keepaspectratio]{\assetpath{ch1_lorenz_tax_py.png}}
+    \end{center}
 
-  \vspace{0.6em}
+    \column{0.45\textwidth}
+    \scriptsize
+    \begin{itemize}
+      \item Two revenue-equivalent policies (each raising 1\% of GDP): wealth tax $1+r-\tau_w$ lowers the gross return for all; capital income tax $1+(1-\tau_{ci})r$ taxes only positive returns.
+      \item In partial equilibrium, the CIT reduces wealth concentration modestly more than the WT in both the PY and LC calibrations.
+      \item Intuition: low-return households face near-zero CIT (little positive capital income to tax) but a positive WT regardless of their return.
+    \end{itemize}
+  \end{columns}
+\end{frame}
+
+\begin{frame}[label=ch1-welfare]{Chapter 1: Policy Implications — Welfare}
+  \scriptsize
+  \begin{itemize}
+    \item Welfare is measured by consumption-equivalent $\Delta$: the \% increase in consumption under the WT that makes a newborn --- before drawing their return type --- indifferent to the CIT. $\Delta > 0$ means CIT preferred.
+    \item \textbf{Aggregate:} $\Delta = 0.20\%$ (PY) and $0.15\%$ (LC) --- the CIT is preferred on average for a newborn.
+    \item \textbf{By return type:} 6 of 7 types prefer the CIT; only the highest-return type ($R=1.079$) prefers the WT. Low-return types gain most from switching to CIT because the WT reduces their already-low gross return while generating little revenue from them.
+  \end{itemize}
+  \vspace{0.3em}
+  \slidetable{
+  \begin{tabular}{lccccccc}
+    \toprule
+    & \textbf{Type 1} & \textbf{Type 2} & \textbf{Type 3} & \textbf{Type 4} & \textbf{Type 5} & \textbf{Type 6} & \textbf{Type 7} \\
+    \midrule
+    Baseline $R$ & 0.962 & 0.981 & 1.001 & 1.020 & 1.040 & 1.059 & 1.079 \\
+    CE $\Delta$ (WT vs CIT) & +0.23\% & +0.27\% & +0.34\% & +0.32\% & +0.30\% & +0.24\% & $-$0.31\% \\
+    \bottomrule
+  \end{tabular}
+  }
 \end{frame}
 
 
@@ -150,41 +166,83 @@
 
 \begin{frame}{Chapter 2: Moderate Trust and Maximum Performance on Financial Investments}
   \begin{itemize}
-    \item I use the RAND HRS panel to construct returns to net wealth and study their relationship with generalized trust.
-    \item Trust is measured on a 1 to 10 scale in the 2020 HRS module, while the panel structure allows estimation of a persistent household return component.
-    \item Because trust is time-invariant in the HRS, the correlated random effects (CRE) framework is especially useful here.
+    \item Economic performance is hump-shaped in trust: moderate trust maximizes outcomes at the individual level.
+    \item Using the RAND HRS panel --- which includes both household financial data and a generalized trust measure --- we test whether this holds for returns to net wealth.
+    \item It does: the return-maximizing trust level is 6--7 on a 1--10 scale, and the panel structure allows us to estimate a persistent household return component.
   \end{itemize}
-
-  \vspace{0.6em}
-  The broader empirical motivation is that trust is often positively related to economic performance, but the relationship need not be monotone.
 \end{frame}
 
 \begin{frame}[label=ch2-results]{Chapter 2: Main Result}
-  \begin{columns}
-    \column{0.50\textwidth}
-    \begin{figure}
-      \includegraphics[width=\textwidth]{\assetpath{ch2_trustdist_main.png}}
-      \caption{\scriptsize Estimated return-maximizing trust levels v.s. observed trust.}
-    \end{figure}
+  \scriptsize
+  \begin{itemize}
+    \item Trust and Trust$^2$ are jointly significant: returns to net wealth are hump-shaped in trust.
+    \item The result is robust across pooled OLS and correlated random effects (CRE/Mundlak) specifications.
+  \end{itemize}
+  \vspace{0.2em}
+  \slidetable{
+  \begin{tabular}{lcccc}
+    \toprule
+    & \multicolumn{2}{c}{Pooled OLS} & \multicolumn{2}{c}{CRE} \\
+    \cmidrule(lr){2-3}\cmidrule(lr){4-5}
+    & (1) Baseline & (2) Extended & (3) Baseline & (4) Extended \\
+    \midrule
+    Trust     & $0.03^{***}$ & $0.03^{***}$ & $0.03^{***}$ & $0.03^{***}$ \\
+              & $(0.01)$     & $(0.01)$     & $(0.01)$     & $(0.01)$     \\
+    Trust$^2$ & $-0.00^{**}$ & $-0.00^{**}$ & $-0.00^{***}$& $-0.00^{***}$\\
+              & $(0.00)$     & $(0.00)$     & $(0.00)$     & $(0.00)$     \\
+    \midrule
+    $N$            & 2{,}919 & 2{,}899 & 2{,}919 & 2{,}899 \\
+    $R^2$          & 0.04    & 0.04    & 0.15    & 0.15    \\
+    $\rho$         &         &         & 0.16    & 0.15    \\
+    $\sigma_u$     &         &         & 0.16    & 0.15    \\
+    $\sigma_e$     &         &         & 0.36    & 0.36    \\
+    \bottomrule
+    \multicolumn{5}{l}{\textit{Controls: age, wealth, education, year; col.\ 2 \& 4 add demographics.}}
+  \end{tabular}}
+\end{frame}
 
-    \column{0.50\textwidth}
+\begin{frame}[label=ch2-trustmax]{Chapter 2: Return-Maximizing Trust Level}
+  \begin{columns}
+    \column{0.55\textwidth}
+    \begin{center}
+      \includegraphics[width=\textwidth,height=0.65\textheight,keepaspectratio]{\assetpath{ch2_trustdist_main.png}}
+    \end{center}
+
+    \column{0.45\textwidth}
     \scriptsize
     \slidetable{
-    \begin{tabular}{lccc}
+    \begin{tabular}{lcc}
       \toprule
-      Specification & Avg. returns & Pooled OLS & CRE \\
+      Specification & No controls & With controls \\
       \midrule
-      Trust$^\ast$ without controls & 6.70 & 6.89 & 6.34 \\
-      Trust$^\ast$ with controls & 7.07 & 7.61 & 6.59 \\
+      Avg.\ returns & 6.70 & 7.07 \\
+      Pooled OLS    & 6.89 & 7.61 \\
+      CRE           & 6.34 & 6.59 \\
       \bottomrule
-    \end{tabular}
-    }
-
+    \end{tabular}}
+    \vspace{0.4em}
     \begin{itemize}
-      \item The fitted relationship between trust and returns to net wealth is hump-shaped.
-      \item The maximum is consistently in a moderate range, roughly between 6 and 7 in the preferred specifications.
-      \item The persistent component remains economically important, and portfolio-share controls change the estimated fixed-effect distribution only modestly.
+      \item Estimated return-maximizing trust is consistently 6--7 across all specifications.
+      \item The observed trust distribution concentrates near this optimal range.
     \end{itemize}
+  \end{columns}
+\end{frame}
+
+\begin{frame}[label=ch2-persistent]{Chapter 2: Persistent Return Component}
+  \scriptsize
+  $\rho\approx0.16$ (intraclass correlation), $\sigma_u\approx0.16$ (persistent SD), $\sigma_e\approx0.36$ (idiosyncratic SD): roughly 16\% of total return variance reflects stable household differences, unchanged by adding portfolio-share controls.
+  \vspace{0.3em}
+  \begin{columns}
+    \column{0.50\textwidth}
+    \begin{center}
+      \includegraphics[width=\textwidth,height=0.55\textheight,keepaspectratio]{\assetpath{ch2_fe_hist_main.png}}\\[2pt]
+      \textit{FE: estimated individual effects (full controls).}
+    \end{center}
+    \column{0.50\textwidth}
+    \begin{center}
+      \includegraphics[width=\textwidth,height=0.55\textheight,keepaspectratio]{\assetpath{ch2_cre_hist_main.png}}\\[2pt]
+      \textit{CRE: estimated individual effects (full controls).}
+    \end{center}
   \end{columns}
 \end{frame}
 
@@ -198,41 +256,69 @@
   \end{itemize}
 
   \vspace{0.6em}
-  \[
-  I^{A} = 1 - \frac{w^{EDE}}{\mu}
-  \]
-
   \textit{Question: does the standard objective benchmark understate wealth inequality when racial structure is central?}
 \end{frame}
 
-\begin{frame}[shrink=10]{Chapter 3: Data Pattern}
-  \begin{columns}
-    \column{0.62\textwidth}
-    \begin{figure}
-      \includegraphics[width=\textwidth]{\assetpath{ch3_gap_main.png}}
-    \end{figure}
+\begin{frame}[label=ch3-setup]{Chapter 3: Inequality Measurement --- Setup}
+  \scriptsize
+  \textbf{Input:} A wealth frequency distribution $p(y)$ --- for each wealth level $y \in [0,\bar{y}]$, $p(y)$ is the share of the population at that wealth level. The objects being ranked are \textit{full distributions}, not individual outcomes.
 
-    \column{0.38\textwidth}
+  \vspace{0.5em}
+  \textbf{Objective (Atkinson) measure.} A social planner with welfare function $U(y)$ (increasing, concave) ranks distributions by expected utility:
+  $$W^O = \int_0^{\bar{y}} U(y)\, p(y)\, dy.$$
+  The \textit{equally distributed equivalent} wealth $w_{EDE}$ satisfies $U(w_{EDE}) = W^O$. The inequality index is:
+  $$I^O = 1 - \frac{w_{EDE}}{\mu}, \qquad \mu = \text{mean wealth.}$$
+
+  \vspace{0.2em}
+  Using the CRRA welfare function $U(y) = \frac{y^{1-\epsilon}}{1-\epsilon}$ (with $\epsilon \geq 0$ governing inequality aversion) yields a mean-independent, unit-free measure $I^O \in [0,1]$.
+\end{frame}
+
+\begin{frame}[label=ch3-ambiguity-derive]{Chapter 3: The Ambiguity-Based Measure}
+  \scriptsize
+  \textbf{Extension.} States $S = \{\text{Black},\,\text{White}\}$. The planner does not know the objective probability over states --- this is \textit{ambiguity} (Gilboa--Schmeidler 1989). Each act $f \in F$ maps a state to a wealth distribution: $f(s) = p(s)(y)$.
+
+  \vspace{0.4em}
+  The ambiguity-averse welfare criterion takes the worst-case weighting over beliefs $\lambda \in \Delta(S)$:
+  $$W^A = \min_{\lambda \in \Delta(S)} \int_S \int_0^{\bar{y}} U(y)\,p(s)(y)\,dy\,d\lambda \;=\; \min_{s\,\in\, S}\;\mathbb{E}_{p(s)}\bigl[U(y)\bigr].$$
+  The minimum puts all weight on whichever racial group has the lower within-group expected utility that year.
+
+  \vspace{0.4em}
+  The ambiguity EDE solves $U(w^A_{EDE}) = W^A$, giving:
+  $$I^A = 1 - \frac{w^A_{EDE}}{\mu}.$$
+
+  \vspace{0.2em}
+  Since $W^A \leq W^O$ by construction, $I^A \geq I^O$: the ambiguity criterion \textbf{systematically reports higher inequality} than the objective benchmark for the same wealth distribution.
+\end{frame}
+
+\begin{frame}{Chapter 3: Data Pattern}
+  \begin{columns}
+    \column{0.70\textwidth}
+    \begin{center}
+      \includegraphics[width=\textwidth,height=0.72\textheight,keepaspectratio,trim={0.8in 5.75in 0.8in 2.15in},clip]{\assetpath{ch3_gap_page164.pdf}}
+    \end{center}
+
+    \column{0.30\textwidth}
     \scriptsize
     \begin{itemize}
-      \item The raw data show a persistent and economically large racial wealth gap in both net wealth and gross assets.
-      \item This is the empirical benchmark the theoretical inequality measures should speak to.
+      \item Persistent, large racial wealth gap in both net wealth and gross assets.
+      \item This is the empirical benchmark the inequality measures speak to.
     \end{itemize}
   \end{columns}
 \end{frame}
 
-\begin{frame}[label=ch3-results,shrink=10]{Chapter 3: Ambiguity-Based Wealth Inequality}
+\begin{frame}[label=ch3-results]{Chapter 3: Ambiguity-Based Wealth Inequality}
   \begin{columns}
-    \column{0.62\textwidth}
-    \begin{figure}
-      \includegraphics[width=\textwidth]{\assetpath{ch3_measures_main.png}}
-    \end{figure}
+    \column{0.60\textwidth}
+    \begin{center}
+      \includegraphics[width=\textwidth,height=0.30\textheight,keepaspectratio]{\assetpath{ch3_measures_net.png}}\\[2pt]
+      \includegraphics[width=\textwidth,height=0.30\textheight,keepaspectratio]{\assetpath{ch3_measures_gross.png}}
+    \end{center}
 
-    \column{0.38\textwidth}
+    \column{0.40\textwidth}
     \scriptsize
     \begin{itemize}
       \item The objective benchmark understates wealth inequality relative to the ambiguity-based measure for the same wealth distribution.
-      \item This holds for both net wealth and gross assets, and the measures track the broad time pattern of the median wealth-gap diagnostics.
+      \item This holds for both net wealth (top) and gross assets (bottom), and the measures track the broad time pattern of the median wealth-gap diagnostics.
     \end{itemize}
   \end{columns}
 \end{frame}
