@@ -173,7 +173,7 @@ All of which are required to define the desired measure of household returns. Si
 
 \subsubsection{Defining wealth for assets and portfolios}
 
-\par The final component needed for the returns calculations is the wealth held by a respondent (in the previous period). This is measured as the total stock in the given asset classes (core, retirement, and residential), and summing among these creates the stock of wealth in the given portfolios (core and retirement assets, net wealth). For example, \texttt{Net value of primary residences} and \texttt{Net value of primary residences} from the previous period are summed together as a measure of \textbf{wealth held in residential assets at the beginning of the previous period}. Figure ~\ref{fig:wealth_mean_by_year_panels} shows the mean wealth within these narrowly defined asset classes for each year of the survey. 
+\par The final component needed for the returns calculations is the wealth held by a respondent (in the previous period). This is measured as the total stock in the given asset classes (core, retirement, and residential), and summing among these creates the stock of wealth in the given portfolios (core and retirement assets, net wealth). For example, \texttt{Net value of primary residences} and \texttt{Net value of secondary residences} from the previous period are summed together as a measure of \textbf{wealth held in residential assets at the beginning of the previous period}. Figure ~\ref{fig:wealth_mean_by_year_panels} shows the mean wealth within these narrowly defined asset classes for each year of the survey. 
 
 \begin{figure}[H]
 \centering
@@ -192,7 +192,7 @@ All of which are required to define the desired measure of household returns. Si
 
 \par Retirement assets seem to perform the worst in terms of average holdings. This may not be surprising, as the survey over samples older households and these households draw down their assets for consumption during retirement, in general. Core assets seem to offer the best performance, and all asset classes see a downward dive leading up to 2010 -- historically accurate in the context of investment performance during the global financial crisis.
 
- \par The following formula from \cite{Daminato2024} serves as a useful baseline for the return measures defined using HRS data: $$ r_t = \frac{y^c_t + cg_t -F_t -y^d_t}{A_{t-1} + .5F_t}   $$ where $y^c_t$ interest income and dividends, capital gains $cg_t$ measured as the difference between the reported stocks across waves of the survey\footnote{The capital gains to respondent $i$ for an asset $j$ is $V_{i,j,t} - V_{i,j,t-1}$, where $V_{i,j,t}$ is the value of the j-th asset for the i-th respondent in the t-th wave of the survey.}, $F_t$ net investment flows, $y^d_t$ payments on debt (in the RAND Longitudinal file, the variables mentioned are all in net terms, so this variable is equal to $0$), and $A_{t-1}$ total net wealth at the beginning of the previous period.
+ \par The following formula from \cite{Daminato2024} serves as a useful baseline for the return measures defined using HRS data: $$ r_t = \frac{y^c_t + cg_t -F_t -y^d_t}{A_{t-1} + .5F_t}   $$ where $y^c_t$ is interest income and dividends, capital gains $cg_t$ measured as the difference between the reported stocks across waves of the survey\footnote{The capital gains to respondent $i$ for an asset $j$ is $V_{i,j,t} - V_{i,j,t-1}$, where $V_{i,j,t}$ is the value of the j-th asset for the i-th respondent in the t-th wave of the survey.}, $F_t$ net investment flows, $y^d_t$ payments on debt (in the RAND Longitudinal file, the variables mentioned are all in net terms, so this variable is equal to $0$), and $A_{t-1}$ total net wealth at the beginning of the previous period.
 %%%%%%%%%%
 
 \par Although this return measure is useful, the RAND HRS Longitudinal product has a unique structure that will guide how I define the asset classes and portfolios for which returns are accrued. As mentioned before, core assets are the most narrowly defined asset class here because interest income and dividends do not disaggregate into the asset classes: stocks, bonds, private business, IRA/Keogh.
@@ -235,7 +235,7 @@ where $y^{net}_{it}$ is the interest income and dividends on core and retirement
 
 \subsubsection{The distribution of measured returns}
 
-\par I present the the evolution of the return measures, averaged over the respondents, over time in the following figure ~\ref{fig:returns_mean_by_year_panels}. I group them by asset classes (core, retirement, residential) and portfolio definitions (core and retirement, net wealth). %%%%describe%%%%%%
+\par I present the evolution of the return measures, averaged over the respondents, over time in the following figure ~\ref{fig:returns_mean_by_year_panels}. I group them by asset classes (core, retirement, residential) and portfolio definitions (core and retirement, net wealth). %%%%describe%%%%%%
 
 \begin{figure}[H]
 \centering
@@ -310,7 +310,7 @@ where $y^{net}_{it}$ is the interest income and dividends on core and retirement
   \item ``How much do you trust people in general?''
   \end{itemize}
 
-Respondents are asked to give an answer between 1 and 10. This set of trust questions was only a part of the questionnaire in that year. This is an issue, since the panel structure of the HRS allows me to estimate the persistent component of returns, variation in the trust measure would be ideal if it matters for trust. That said, in the panel setting, we can assume that trust, like education, is fixed over time.\footnote{Literature on trust talks about how history of being cheated or treated fairly form individuals' trust over time. If this is true and at some point, one learns enough and forms their trust level, then a sample with an over-representation of older household is a reasonable environment to assume constant trust levels.}
+Respondents are asked to give an answer between 1 and 10. This set of trust questions was only a part of the questionnaire in that year. This is an issue, since the panel structure of the HRS allows me to estimate the persistent component of returns, variation in the trust measure would be ideal if it matters for returns. That said, in the panel setting, we can assume that trust, like education, is fixed over time.\footnote{Literature on trust talks about how history of being cheated or treated fairly form individuals' trust over time. If this is true and at some point, one learns enough and forms their trust level, then a sample with an over-representation of older household is a reasonable environment to assume constant trust levels.}
 
 \par Figure~\ref{fig:39_trust_general_2020_hist} shows the distribution of responses to the trust question. Interestingly, most of the respondents report a trust level of 5 or 7. In addition, there are a significant number of respondents who report trusting other people at the most extreme values (0 or 10). This suggests that the sample has a significant number of individuals who are very trusting and also very distrusting. In general, 
 
@@ -387,7 +387,7 @@ Respondents are asked to give an answer between 1 and 10. This set of trust ques
 
 \subsubsection{Return vs.\ net wealth}
 
-\par Figure~\ref{fig:39_r5_netwealth_pct} is the appropriate place to read the raw relationship between returns and wealth in the sample. For returns to net wealth, that descriptive relationship appears fairly weak and close to flat, with at most a slight positive tilt in the fitted line. That said the observations towards the ends of the net wealth distribution do seem to exhibit the \textit{scale dependence} result found in the literature regarding returns.
+\par Figure~\ref{fig:39_r5_netwealth_pct} is the appropriate place to read the raw relationship between returns and wealth in the sample. For returns to net wealth, that descriptive relationship appears fairly weak and close to flat, with at most a slight positive tilt in the fitted line. That said, the observations towards the ends of the net wealth distribution do seem to exhibit the \textit{scale dependence} result found in the literature regarding returns.
 
 \begin{figure}[H]
 \centering
@@ -413,7 +413,7 @@ Respondents are asked to give an answer between 1 and 10. This set of trust ques
 
 \subsubsection{Return vs.\ labor force participation status}
 
-\par Figure ~\ref{fig:39_r5_lf_year} shows the mean returns to net wealth conditional on labor foce paritipation status. Following the global financial crisis of 2008, it seems that returns are higher on average conditional on being employed in general. 
+\par Figure ~\ref{fig:39_r5_lf_year} shows the mean returns to net wealth conditional on labor force participation status. Following the global financial crisis of 2008, it seems that returns are higher on average conditional on being employed in general. 
 
 \begin{figure}[H]
 \centering
