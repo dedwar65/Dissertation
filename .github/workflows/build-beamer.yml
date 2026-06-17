@@ -1,0 +1,34 @@
+name: Build Beamer PDF
+
+on:
+  push:
+    paths:
+      - 'final-defense/Defense-Beamer.tex'
+      - 'final-defense/thesis.bib'
+      - '.github/workflows/build-beamer.yml'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Install LaTeX dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y texlive-latex-base texlive-fonts-recommended texlive-latex-extra texlive-bibtex-extra latexmk
+
+      - name: Build PDF
+        working-directory: ./final-defense
+        run: |
+          latexmk -pdf -interaction=nonstopmode Defense-Beamer.tex
+
+      - name: Commit and push PDF
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add final-defense/Defense-Beamer.pdf
+          git diff-index --quiet HEAD || git commit -m "Auto-rebuild: Updated Defense-Beamer.pdf"
+          git push
+        continue-on-error: true
