@@ -89,28 +89,29 @@
 
 \begin{frame}[label=ch1-results]{Chapter 1: Main Result}
   \begin{columns}
-    \column{0.56\textwidth}
-    \begin{center}
-      \includegraphics[width=\textwidth,height=0.65\textheight,keepaspectratio,trim={0.8in 3.4in 0.8in 5.0in},clip]{\assetpath{ch1_fig1_page31.pdf}}
-    \end{center}
-    \scriptsize\textit{Heterogeneous returns produce a Lorenz curve much closer to the SCF target.}
-
-    \column{0.44\textwidth}
-    \scriptsize
-    \begin{itemize}
-      \item Estimated uniform return distribution:
-      \[
-      R = 1.0204, \qquad \nabla = 0.06833.
-      \]
-      \item Top 5\% wealth share:
-      \begin{itemize}
-        \item Data: 57.4\%
-        \item No heterogeneity: 23.3\%
-        \item Heterogeneity: 58.8\%
-      \end{itemize}
-    \end{itemize}
-
+    \column{0.5\textwidth}
+    \centering
+    \includegraphics[width=\textwidth,height=0.42\textheight,keepaspectratio]{\assetpath{ch1_lorenz_point.png}}
+    \column{0.5\textwidth}
+    \centering
+    \includegraphics[width=\textwidth,height=0.42\textheight,keepaspectratio]{\assetpath{ch1_lorenz_dist.png}}
   \end{columns}
+
+  \vspace{0.3em}
+  \scriptsize
+  \begin{center}
+  \begin{tabular}{lcccccc}
+    \toprule
+     & \textbf{0--20} & \textbf{20--40} & \textbf{40--60} & \textbf{60--80} & \textbf{80--95} & \textbf{Top 5\%} \\
+    \midrule
+    Data             & $-0.002$ & 0.011 & 0.044 & 0.118 & 0.255 & 0.574 \\
+    No heterogeneity & 0.030    & 0.085 & 0.142 & 0.224 & 0.285 & 0.233 \\
+    Heterogeneity    & 0.005    & 0.019 & 0.042 & 0.096 & 0.251 & 0.588 \\
+    \bottomrule
+  \end{tabular}
+  \end{center}
+  \vspace{0.2em}
+  \tiny\textit{Wealth shares by net-worth percentile, infinite-horizon (PY) model. Estimated uniform return distribution: $R=1.0204$, $\nabla=0.06833$.}
 \end{frame}
 
 \begin{frame}[label=ch1-policy]{Chapter 1: Policy Implications — Wealth Distribution}
@@ -124,8 +125,7 @@
     \scriptsize
     \begin{itemize}
       \item Two revenue-equivalent policies (each raising 1\% of GDP): wealth tax $1+r-\tau_w$ lowers the gross return for all; capital income tax $1+(1-\tau_{ci})r$ taxes only positive returns.
-      \item In partial equilibrium, the CIT reduces wealth concentration modestly more than the WT in both the PY and LC calibrations.
-      \item Intuition: low-return households face near-zero CIT (little positive capital income to tax) but a positive WT regardless of their return.
+      \item The CIT reduces wealth concentration by more than the WT in both models: only households with strictly positive returns face the capital income tax, a smaller tax pool than the wealth tax.
     \end{itemize}
   \end{columns}
 \end{frame}
@@ -191,7 +191,7 @@
   \floatingnavbutton{ch2-trustmax-deriv}{Where's the max?}
 \end{frame}
 
-\begin{frame}[label=ch2-trustmax-deriv]{Chapter 2: Quadratic Trust Term --- Where Does the Max Come From?}
+\begin{frame}[label=ch2-trustmax-deriv]{Chapter 2: How is Maximal Trust Estimated?}
   \scriptsize
   Starting from the panel regression with controls held fixed,
   $$ r^{net}_{it} = \alpha_i + \lambda_t + X_{it}'\beta + \beta_1\,\textit{Trust}_i + \beta_2\,\textit{Trust}_i^2 + \varepsilon_{it}, $$
@@ -231,40 +231,93 @@
     \vspace{0.4em}
     \begin{itemize}
       \item Estimated return-maximizing trust is consistently 6--7 across all specifications.
-      \item The observed trust distribution concentrates near this optimal range.
+      \item A large mass of respondents is concentrated around the estimated optimal trust level.
     \end{itemize}
   \end{columns}
 \end{frame}
 
 \begin{frame}[label=ch2-persistent]{Chapter 2: Persistent Return Component}
   \scriptsize
-  $\rho\approx0.16$, $\sigma_u\approx0.16$ (persistent SD), $\sigma_e\approx0.36$ (idiosyncratic SD): roughly 16\% of total return variance reflects stable household differences, unchanged by adding portfolio-share controls.
-  \vspace{0.3em}
+  \begin{itemize}
+    \item The estimated persistent component across individuals differs because FE absorbs all time-invariant variation (trust, demographics) directly into the fixed effect, while CRE estimates it separately via the Mundlak terms.
+    \item A substantially larger share of total return variance loads onto the persistent component under FE ($\rho=0.65$) than under CRE ($\rho=0.15$).
+    \item The individual effect's standard deviation is also far larger under FE ($\sigma_u=0.45$) than under CRE ($\sigma_u=0.15$).
+  \end{itemize}
+  \vspace{0.4em}
+  \begin{center}
+  \begin{tabular}{lcc}
+    \toprule
+     & FE & CRE \\
+    \midrule
+    $\rho$      & 0.65 & 0.15 \\
+    $\sigma_u$  & 0.45 & 0.15 \\
+    $\sigma_e$  & 0.33 & 0.36 \\
+    \bottomrule
+  \end{tabular}
+  \end{center}
+  \floatingnavbutton{ch2-persistent-hist}{See histograms}
+\end{frame}
+
+\begin{frame}[label=ch2-persistent-hist]{Chapter 2: Estimated Individual Effects --- FE vs.\ CRE}
   \begin{columns}
     \column{0.50\textwidth}
     \begin{center}
       \includegraphics[width=\textwidth,height=0.55\textheight,keepaspectratio]{\assetpath{ch2_fe_hist_main.png}}\\[2pt]
-      \textit{FE: estimated individual effects (full controls).}
+      \scriptsize\textit{FE: estimated individual effects (full controls).}
     \end{center}
     \column{0.50\textwidth}
     \begin{center}
       \includegraphics[width=\textwidth,height=0.55\textheight,keepaspectratio]{\assetpath{ch2_cre_hist_main.png}}\\[2pt]
-      \textit{CRE: estimated individual effects (full controls).}
+      \scriptsize\textit{CRE: estimated individual effects (full controls).}
     \end{center}
   \end{columns}
+  \vspace{0.6em}
+  \centernavbutton{ch2-persistent}{Back}
 \end{frame}
 
 \section{Chapter 3}
 
-\begin{frame}{Chapter 3: Wealth Inequality Under Ambiguity}
-  \begin{itemize}
-    \item Motivated by Rawls' discussion of justice behind a veil of ignorance, I propose a wealth inequality measure based on choice under ambiguity.
-    \item The key idea is that wealth distributions may need to be ranked using socially relevant states, rather than objective uncertainty alone.
-    \item I then adapt the social-welfare approach to inequality measurement to define an ambiguity-based wealth inequality measure.
-  \end{itemize}
+\begin{frame}{Chapter 3: Measuring Wealth Inequality Under Ambiguity}
+  \begin{columns}
+    \column{0.55\textwidth}
+    \begin{center}
+      \includegraphics[width=\textwidth,height=0.58\textheight,keepaspectratio]{\assetpath{ch3_gap_motivation.png}}
+    \end{center}
 
+    \column{0.45\textwidth}
+    \scriptsize
+    \begin{itemize}
+      \item Wealth is a complex object: it is far more skewed than income, and it requires enforceable ownership rights and legal/political institutions.
+      \item Racial wealth inequality has a well-documented history in this country, and has generally risen over time.
+      \item I argue that insights from the choice-under-uncertainty literature can be used to propose a measure of inequality aversion that addresses these complexities in wealth and its allocation across individuals.
+    \end{itemize}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Chapter 3: A Thought Experiment}
+  \scriptsize
+  \begin{itemize}
+    \item To see this, consider two budget-balanced wealth transfers in a population of 60 (10 Black, 50 White; each group split into rich and poor):
+    \begin{itemize}
+      \item \textbf{Policy A:} take 20 units from each of 5 rich Black households; give 4 units to each of 25 poor White households.
+      \item \textbf{Policy B:} take 4 units from each of 25 rich White households; give 20 units to each of 5 poor Black households.
+    \end{itemize}
+    \item Both move the same total wealth (100 units) and, apart from the racial labels, leave the same resulting wealth distribution --- under the standard (objective-uncertainty) ranking, Policies A and B are indistinguishable.
+  \end{itemize}
   \vspace{0.6em}
-  \textit{Question: does the standard objective benchmark understate wealth inequality? Can we reasonably propose a measure of inequality which is specific to the historical context of wealth accumulation in the U.S.? If so, does it more closely track other summary statistics for wealth inequality (e.g., the median racial wealth gap)?}
+  \textit{Yet it isn't hard to imagine these two policies would be treated very differently politically.}
+\end{frame}
+
+\begin{frame}{Chapter 3: Why Would They Be Viewed Differently?}
+  \scriptsize
+  {\setlength{\itemsep}{0.8em}
+  \begin{itemize}
+    \item \textbf{Historical context:} redistributive policies are about alleviating discrimination and reducing inequality. In the U.S., inequality in wealth along racial lines has a clear history. This is one reason why a voting public may not be indifferent between the two policies.
+    \vspace{0.6em}
+    \item \textbf{The birth lottery and Rawls:} Rawls argued that we operate behind a veil of ignorance --- we make rules without knowing which state or group we will be born into. This rationale motivates a maximin principle, which ranks social alternatives by their worst possible outcome for the group that ends up worst off.
+    \vspace{0.6em}
+    \item As we will see, this birth-lottery maximin logic --- maximizing the welfare of the worst-off state --- is precisely the mathematical structure underlying the choice-under-ambiguity model used to propose the alternative wealth-inequality measure in this chapter.
+  \end{itemize}}
 \end{frame}
 
 \begin{frame}[label=ch3-setup]{Chapter 3: Inequality Measurement --- Setup}
@@ -298,29 +351,15 @@
   Since $W^A \leq W^O$ by construction, $I^A \geq I^O$: the ambiguity criterion \textbf{systematically reports higher inequality} than the objective benchmark for the same wealth distribution.
 \end{frame}
 
-\begin{frame}{Chapter 3: Data Pattern}
-  \begin{columns}
-    \column{0.70\textwidth}
-    \begin{center}
-      \includegraphics[width=\textwidth,height=0.72\textheight,keepaspectratio,trim={0.8in 5.75in 0.8in 2.15in},clip]{\assetpath{ch3_gap_page164.pdf}}
-    \end{center}
-
-    \column{0.30\textwidth}
-    \scriptsize
-    \begin{itemize}
-      \item Persistent, large racial wealth gap in both net wealth and gross assets.
-      \item This is the empirical benchmark the inequality measures speak to.
-    \end{itemize}
-  \end{columns}
-\end{frame}
-
 \begin{frame}[label=ch3-results]{Chapter 3: Ambiguity-Based Wealth Inequality}
   \begin{columns}
     \column{0.60\textwidth}
     \begin{center}
-      \includegraphics[width=\textwidth,height=0.30\textheight,keepaspectratio]{\assetpath{ch3_measures_net.png}}\\[2pt]
-      \includegraphics[width=\textwidth,height=0.30\textheight,keepaspectratio]{\assetpath{ch3_measures_gross.png}}
+      \includegraphics[width=\textwidth,height=0.30\textheight,keepaspectratio]{\assetpath{ch3_measures_net_eps05.png}}\\[2pt]
+      \includegraphics[width=\textwidth,height=0.30\textheight,keepaspectratio]{\assetpath{ch3_measures_gross_eps05.png}}
     \end{center}
+    \vspace{0.2em}
+    \tiny\textit{Shown for $\epsilon=0.5$ (moderate inequality aversion); $I^A \geq I^O$ holds for every $\epsilon \in \{0,0.25,0.5,1,1.5,2\}$.}
 
     \column{0.40\textwidth}
     \scriptsize
