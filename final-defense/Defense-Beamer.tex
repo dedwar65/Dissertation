@@ -63,18 +63,7 @@
 
 \section{Introduction}
 
-\begin{frame}{Question and Unifying Theme}
-  \begin{itemize}
-    \item This dissertation asks how heterogeneous rates of return reshape the explanation, performance, and measurement of wealth inequality.
-    \item The common theme is that wealth inequality is not only about who saves more; it is also about who earns different returns, why, and how those differences should be evaluated.
-    \item Chapter 1 is structural macro, Chapter 2 is empirical household finance, and Chapter 3 is an alternative inequality measurement.
-  \end{itemize}
-
-  \vspace{0.5em}
-  \textit{Core message: rates of return matter for understanding differences in household wealth.}
-\end{frame}
-
-\begin{frame}{How the Three Chapters Fit Together}
+\begin{frame}{Introduction}
   \begin{enumerate}
     \item \textbf{Chapter 1}: Can return heterogeneity help a standard heterogeneous-agent model match empirical wealth moments?
     \item \textbf{Chapter 2}: Is there a systematic relationship between trust and returns to net wealth, and can we still estimate a persistent household return component?
@@ -199,6 +188,25 @@
     \bottomrule
     \multicolumn{5}{l}{\textit{Controls: age, wealth, education, year; col.\ 2 \& 4 add demographics.}}
   \end{tabular}}
+  \floatingnavbutton{ch2-trustmax-deriv}{Where's the max?}
+\end{frame}
+
+\begin{frame}[label=ch2-trustmax-deriv]{Chapter 2: Quadratic Trust Term --- Where Does the Max Come From?}
+  \scriptsize
+  Starting from the panel regression with controls held fixed,
+  $$ r^{net}_{it} = \alpha_i + \lambda_t + X_{it}'\beta + \beta_1\,\textit{Trust}_i + \beta_2\,\textit{Trust}_i^2 + \varepsilon_{it}, $$
+  the implied marginal effect of trust on returns is
+  $$ \frac{\partial r^{net}_{it}}{\partial \textit{Trust}_i} = \beta_1 + 2\beta_2\,\textit{Trust}_i. $$
+
+  \vspace{0.4em}
+  Setting this derivative to zero gives the critical point
+  $$ \textit{Trust}^{*} = -\frac{\beta_1}{2\beta_2}. $$
+
+  \vspace{0.4em}
+  When $\hat\beta_1 \geq 0$ and $\hat\beta_2 \leq 0$, the fitted relationship in trust is concave (hump-shaped), so $\textit{Trust}^*$ is a maximum: returns rise in trust up to $\textit{Trust}^*$ and fall beyond it. Plugging in the estimated coefficients gives the values reported on the previous slide (6--7 across specifications).
+
+  \vspace{0.6em}
+  \centernavbutton{ch2-results}{Back to Main Result}
 \end{frame}
 
 \begin{frame}[label=ch2-trustmax]{Chapter 2: Return-Maximizing Trust Level}
@@ -230,7 +238,7 @@
 
 \begin{frame}[label=ch2-persistent]{Chapter 2: Persistent Return Component}
   \scriptsize
-  $\rho\approx0.16$ (intraclass correlation), $\sigma_u\approx0.16$ (persistent SD), $\sigma_e\approx0.36$ (idiosyncratic SD): roughly 16\% of total return variance reflects stable household differences, unchanged by adding portfolio-share controls.
+  $\rho\approx0.16$, $\sigma_u\approx0.16$ (persistent SD), $\sigma_e\approx0.36$ (idiosyncratic SD): roughly 16\% of total return variance reflects stable household differences, unchanged by adding portfolio-share controls.
   \vspace{0.3em}
   \begin{columns}
     \column{0.50\textwidth}
@@ -256,18 +264,18 @@
   \end{itemize}
 
   \vspace{0.6em}
-  \textit{Question: does the standard objective benchmark understate wealth inequality when racial structure is central?}
+  \textit{Question: does the standard objective benchmark understate wealth inequality? Can we reasonably propose a measure of inequality which is specific to the historical context of wealth accumulation in the U.S.? If so, does it more closely track other summary statistics for wealth inequality (e.g., the median racial wealth gap)?}
 \end{frame}
 
 \begin{frame}[label=ch3-setup]{Chapter 3: Inequality Measurement --- Setup}
   \scriptsize
-  \textbf{Input:} A wealth frequency distribution $p(y)$ --- for each wealth level $y \in [0,\bar{y}]$, $p(y)$ is the share of the population at that wealth level. The objects being ranked are \textit{full distributions}, not individual outcomes.
+  \textbf{Input:} An income frequency distribution $p(y)$ --- for each income level $y \in [0,\bar{y}]$, $p(y)$ is the share of the population at that income level. This is the standard object in the inequality literature; the objects being ranked are \textit{full distributions}, not individual outcomes.
 
   \vspace{0.5em}
-  \textbf{Objective (Atkinson) measure.} A social planner with welfare function $U(y)$ (increasing, concave) ranks distributions by expected utility:
+  \textbf{Objective (Atkinson) measure.} A social planner with welfare function $U(y)$ (increasing, concave) ranks income distributions by expected utility:
   $$W^O = \int_0^{\bar{y}} U(y)\, p(y)\, dy.$$
-  The \textit{equally distributed equivalent} wealth $w_{EDE}$ satisfies $U(w_{EDE}) = W^O$. The inequality index is:
-  $$I^O = 1 - \frac{w_{EDE}}{\mu}, \qquad \mu = \text{mean wealth.}$$
+  The \textit{equally distributed equivalent} income $y_{EDE}$ satisfies $U(y_{EDE}) = W^O$. The inequality index is:
+  $$I^O = 1 - \frac{y_{EDE}}{\mu}, \qquad \mu = \text{mean income.}$$
 
   \vspace{0.2em}
   Using the CRRA welfare function $U(y) = \frac{y^{1-\epsilon}}{1-\epsilon}$ (with $\epsilon \geq 0$ governing inequality aversion) yields a mean-independent, unit-free measure $I^O \in [0,1]$.
@@ -275,7 +283,7 @@
 
 \begin{frame}[label=ch3-ambiguity-derive]{Chapter 3: The Ambiguity-Based Measure}
   \scriptsize
-  \textbf{Extension.} States $S = \{\text{Black},\,\text{White}\}$. The planner does not know the objective probability over states --- this is \textit{ambiguity} (Gilboa--Schmeidler 1989). Each act $f \in F$ maps a state to a wealth distribution: $f(s) = p(s)(y)$.
+  \textbf{Reinterpreting wealth.} A wealth distribution is modeled as a \textit{state-contingent income distribution}: fix a state space $S = \{\text{Black},\,\text{White}\}$ --- the \say{birth lottery,} in the spirit of Rawls' veil of ignorance --- and let each act $f \in F$ assign to every state $s \in S$ an income frequency distribution, $f(s) = p(s)(y)$. The planner does not know the objective probability over states --- this is \textit{ambiguity} (Gilboa--Schmeidler 1989).
 
   \vspace{0.4em}
   The ambiguity-averse welfare criterion takes the worst-case weighting over beliefs $\lambda \in \Delta(S)$:
@@ -283,7 +291,7 @@
   The minimum puts all weight on whichever racial group has the lower within-group expected utility that year.
 
   \vspace{0.4em}
-  The ambiguity EDE solves $U(w^A_{EDE}) = W^A$, giving:
+  The ambiguity EDE solves $U(w^A_{EDE}) = W^A$, giving the wealth inequality measure:
   $$I^A = 1 - \frac{w^A_{EDE}}{\mu}.$$
 
   \vspace{0.2em}
