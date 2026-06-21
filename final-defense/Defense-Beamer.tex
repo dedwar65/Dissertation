@@ -181,10 +181,10 @@
     \midrule
     $N$            & 2{,}919 & 2{,}899 & 2{,}919 & 2{,}899 \\
     $R^2$          & 0.04    & 0.04    & 0.15    & 0.15    \\
+    Trust joint $p$ & 0.01   & 0.00    & 0.01    & 0.02    \\
     $\rho$         &         &         & 0.16    & 0.15    \\
     $\sigma_u$     &         &         & 0.16    & 0.15    \\
     $\sigma_e$     &         &         & 0.36    & 0.36    \\
-    Trust joint $p$ & 0.01   & 0.00    & 0.01    & 0.02    \\
     \bottomrule
     \multicolumn{5}{l}{\textit{Controls: age, wealth, education, year; col.\ 2 \& 4 add demographics.}}
   \end{tabular}}
@@ -354,15 +354,21 @@
 
 \begin{frame}[label=ch3-results]{Chapter 3: Ambiguity-Based Wealth Inequality}
   \begin{columns}
-    \column{0.60\textwidth}
+    \column{0.62\textwidth}
     \begin{center}
-      \includegraphics[width=\textwidth,height=0.32\textheight,keepaspectratio]{\assetpath{ch3_measures_net_shifted.png}}\\[2pt]
-      \includegraphics[width=\textwidth,height=0.32\textheight,keepaspectratio]{\assetpath{ch3_measures_gross_shifted.png}}
+    \begin{minipage}{0.48\linewidth}
+      \centering
+      \includegraphics[width=\textwidth,height=0.45\textheight,keepaspectratio]{\assetpath{ch3_measures_net_shifted.png}}
+    \end{minipage}\hfill
+    \begin{minipage}{0.48\linewidth}
+      \centering
+      \includegraphics[width=\textwidth,height=0.45\textheight,keepaspectratio]{\assetpath{ch3_measures_gross_shifted.png}}
+    \end{minipage}
     \end{center}
     \vspace{0.2em}
     \tiny\textit{Shown for $\epsilon=0.5$ (moderate inequality aversion); $I^A \geq I^O$ holds for every $\epsilon \in \{0,0.25,0.5,1,1.5,2\}$.}
 
-    \column{0.40\textwidth}
+    \column{0.38\textwidth}
     \scriptsize
     \begin{itemize}
       \item Both measures track the general trend in the median wealth-gap. The wealth inequality aversion measure performs better since it is constructed while controlling for racial dynamics.
