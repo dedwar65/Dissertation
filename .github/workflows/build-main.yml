@@ -12,10 +12,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Install LaTeX
+      - name: Install full TeX Live (includes autobreak)
         run: |
           sudo apt-get update
-          sudo apt-get install -y texlive-latex-base texlive-fonts-recommended texlive-latex-extra texlive-bibtex-extra latexmk make
+          sudo apt-get install -y texlive-full latexmk make
 
       - name: Build 00-main.pdf
         run: |
