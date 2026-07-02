@@ -1,0 +1,31 @@
+name: Build Dissertation PDF (branch-only)
+
+on:
+  push:
+    branches:
+      - edits/reviewer-fixes
+  workflow_dispatch:
+
+jobs:
+  build-main:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install LaTeX
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y texlive-latex-base texlive-fonts-recommended texlive-latex-extra texlive-bibtex-extra latexmk make
+
+      - name: Build 00-main.pdf
+        run: |
+          latexmk -pdf -interaction=nonstopmode 00-main.tex
+
+      - name: Commit and push PDF
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add 00-main.pdf
+          git diff-index --quiet HEAD || git commit -m "Auto-build branch: Updated 00-main.pdf"
+          git push
+        continue-on-error: true
