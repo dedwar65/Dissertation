@@ -8,11 +8,19 @@ on:
       - '.github/workflows/build-beamer.yml'
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+          fetch-depth: 0
+          # persist-credentials=true ensures the checkout action writes the GITHUB_TOKEN credentials to the
+          # local git config so a later `git push` can authenticate using ${{ secrets.GITHUB_TOKEN }}.
       
       - name: Install LaTeX dependencies
         run: |
@@ -25,10 +33,11 @@ jobs:
           latexmk -pdf -interaction=nonstopmode Defense-Beamer.tex
 
       - name: Commit and push PDF
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add final-defense/Defense-Beamer.pdf
           git diff-index --quiet HEAD || git commit -m "Auto-rebuild: Updated Defense-Beamer.pdf"
           git push
-        continue-on-error: true
