@@ -1,0 +1,49 @@
+name: Build Dissertation PDF
+
+on:
+  push:
+    paths:
+      - '00-main.tex'
+      - 'thesis.bib'
+      - '.github/workflows/build-dissertation.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+          fetch-depth: 0
+
+      - name: Install LaTeX dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y texlive-latex-base texlive-fonts-recommended texlive-latex-extra texlive-bibtex-extra latexmk
+
+      - name: Build PDF
+        run: |
+          latexmk -pdf -interaction=nonstopmode 00-main.tex
+
+      - name: Upload PDF artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: 00-main-pdf
+          path: 00-main.pdf
+
+      - name: Commit and push PDF back to branch
+        if: always()
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          BRANCH=$(git rev-parse --abbrev-ref HEAD)
+          git add 00-main.pdf || true
+          git diff-index --quiet HEAD || git commit -m "ci: add compiled 00-main.pdf"
+          git push origin "$BRANCH"
