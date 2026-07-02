@@ -1,6 +1,21 @@
-% Parameter table fragment for inclusion in the main document (no preamble)
-% Converted from a standalone article to an input fragment so the main build can
-% include it via \input{chapters/chapter1/Tables/calibrationPY.tex}.
+\documentclass{article}
+% Packages
+\usepackage[utf8]{inputenc}
+\usepackage[backend=bibtex, style=authoryear]{biblatex} % You can change the style if you prefer a different citation style
+\addbibresource{../Chp1.bib}
+
+\usepackage{dirtytalk}
+\usepackage{cancel}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{caption}
+\usepackage{booktabs}
+\usepackage{amsfonts}
+
+\usepackage{rotating}
+
+
+\begin{document}
 
 \begin{sidewaystable}[ht]
     \centering
@@ -25,3 +40,5 @@
     \caption{Parameter values (annual frequency) for the perpetual youth model.}
     \label{tab:calib1}
 \end{sidewaystable}
+
+\end{document}
