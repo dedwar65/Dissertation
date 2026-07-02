@@ -40,10 +40,21 @@ jobs:
         if: always()
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PUBLISH_TOKEN: ${{ secrets.PUBLISH_TOKEN }}
+          REPO: ${{ github.repository }}
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           BRANCH=$(git rev-parse --abbrev-ref HEAD)
           git add 00-main.pdf || true
           git diff-index --quiet HEAD || git commit -m "ci: add compiled 00-main.pdf"
-          git push origin "$BRANCH"
+          if [ -n "$PUBLISH_TOKEN" ]; then
+            echo "Using PUBLISH_TOKEN to push"
+            git remote set-url origin "https://x-access-token:${PUBLISH_TOKEN}@github.com/${REPO}.git"
+            git push origin "$BRANCH"
+          else
+            echo "PUBLISH_TOKEN not set, trying GITHUB_TOKEN push"
+            git push origin "$BRANCH"
+          fi
+
+# Rerun trigger: 2026-07-02T21:40:00Z
